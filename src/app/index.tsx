@@ -1,4 +1,6 @@
 import React from 'react';
+import {Pages} from "../pages";
+import {Header} from "./header";
 
 // import { Routing } from "pages";
 
@@ -9,9 +11,10 @@ import React from 'react';
 
 const App = () => {
   return (
-    <div className="app">
-      <h1>Hello weird</h1>
-    </div>
+      <>
+        <Header />
+        <Pages/>
+      </>
   );
 };
 export default App;
