@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const ResumePage = () => {
     const [value, setValue] = React.useState('')
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (egit push --force) => {
       const inputValue = e.target.value
       setValue(inputValue)
     }
