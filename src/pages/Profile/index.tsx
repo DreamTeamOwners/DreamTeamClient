@@ -14,6 +14,8 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
+import axios from 'axios';
+import { useState } from 'react';
 
 export default function UserProfileEdit(): JSX.Element {
   return (

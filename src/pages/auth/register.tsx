@@ -15,10 +15,26 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const loginHandler = (e: any) => {
+    navigate('/');
+    e.preventDefault();
+    axios.post('http://18.206.233.246/api/users/register/', form).then((r) => console.log(r.data));
+  };
+  const [form, setform] = useState({
+    username: '',
+    password: '',
+    email: '',
+  });
+  const changeHandler = (e: any) => {
+    setform({ ...form, [e.target.name]: e.target.value });
+  };
+  console.log(form);
 
   return (
     <Flex
@@ -40,26 +56,30 @@ export default function SignupCard() {
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-              <Box>
                 <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <FormLabel>Username</FormLabel>
+                  <Input
+                    onChange={changeHandler}
+                    name="username"
+                    placeholder="Username"
+                    type="text"
+                  />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input onChange={changeHandler} name="email" placeholder="Email" type="email" />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input
+                  onChange={changeHandler}
+                  name="password"
+                  placeholder="Password"
+                  type={showPassword ? 'text' : 'password'}
+                />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -72,6 +92,7 @@ export default function SignupCard() {
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
+                onClick={loginHandler}
                 loadingText="Submitting"
                 size="lg"
                 bg={'blue.400'}

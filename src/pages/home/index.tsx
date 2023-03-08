@@ -1,8 +1,19 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 export const HomePage: FunctionComponent = () => {
+  const [first, setfirst] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token !== 'undefined' && token) {
+      setfirst(true);
+    }
+  }, []);
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
   return (
     <div className="desktop-5">
       <div className="div">
@@ -100,19 +111,45 @@ export const HomePage: FunctionComponent = () => {
             className="sign-in1"
             to="/register"
           >
-            Sign in
+            Sign Up
           </Link>
         </div>
       </div>
       <div className="log-in-2">
         <div className="sign-in1">
-          <Link
-            style={{ textDecoration: 'none', color: 'white', width: 55 }}
-            className="sign-in1"
-            to="login"
-          >
-            Log in
-          </Link>
+          {first ? (
+            <>
+              <Link
+                style={{ textDecoration: 'none', color: 'white' }}
+                className="sign-in1"
+                to="/resume"
+              >
+                Profile
+              </Link>
+              <button
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: 80,
+                  position: 'absolute',
+                  left: 750,
+                  top: 80,
+                }}
+                className="sign-in1"
+                onClick={logout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link
+              style={{ textDecoration: 'none', color: 'white', width: 55 }}
+              className="sign-in1"
+              to="login"
+            >
+              Log in
+            </Link>
+          )}
         </div>
       </div>
       <div className="parent">
