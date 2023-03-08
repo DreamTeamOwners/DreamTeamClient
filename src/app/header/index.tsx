@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import s from './Header.module.css';
+import './Header.css';
 
 export const Header = () => {
   return (
     <header className="container">
-      <div className={s.header__block}>
-        <div className={s.header__logo}>
+      <div className="header__block">
+        <div className="header__logo">
           <Link to="/resume">
             <h1>Digital Team</h1>
           </Link>
         </div>
-        <nav className={s.header__nav}>
+        <nav className="header__nav">
           <ul>
             <a href="https://www.youtube.com/watch?v=LGUMbz2tEMk">Создать команду</a>
             <a href="https://www.youtube.com/watch?v=LGUMbz2tEMk">Присоединиться к команде</a>
@@ -20,12 +20,12 @@ export const Header = () => {
             <a href="https://www.youtube.com/watch?v=LGUMbz2tEMk">О нас</a>
           </ul>
         </nav>
-        <div className={s.header__button}>
+        <div className="header__button">
           <Link to="/login">
-            <button className={s.login__button}>log in</button>
+            <button className="login__button">log in</button>
           </Link>
           <Link to="/register">
-            <button className={s.signin__button}>Sign in</button>
+            <button className="signin__button">Sign in</button>
           </Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import {Pages} from "../pages";
-import {Header} from "./header";
+import { Pages } from '../pages';
+import { Header } from './header';
+import './styles/global-styles.css';
 
 // import { Routing } from "pages";
 
@@ -11,10 +12,10 @@ import {Header} from "./header";
 
 const App = () => {
   return (
-      <>
-        <Header />
-        <Pages/>
-      </>
+    <>
+      {/* <Header /> */}
+      <Pages />
+    </>
   );
 };
 export default App;

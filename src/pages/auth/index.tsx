@@ -1,36 +1,55 @@
-import React from "react";
-import { Auth } from "../../features";
-// import "./index.css";
+import {
+  Button,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Link,
+  Stack,
+  Image,
+} from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
 
-/**
- * @page Auth
- * @remark
- * - Авторизация проходит через firebase (чтобы работало на всех стендах)
- * Этапы авторизации:
- * 1. Авторизация через Github (/authorize)
- * 2. Получение временного кода доступа
- * 3. Получение токена на основании OAuth данных и полученного кода
- */
-const AuthPage = () => {
-    const { login } = Auth.useAuth();
-
-    // TODO: add ability to specify redirect url
-
-
-    return (
-        <div className="page page-auth">
-            <div className="page-auth__form" >
-
-                <button
-                    type="button"
-                    className="page-auth__link github"
-                    onClick={()=>alert('authorize')}
-                    title="Authentication through Github OAuth"
-                >
-                </button>
-            </div>
-        </div>
-    );
-};
-
-export default AuthPage;
+export default function LogInUser() {
+  return (
+    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+      <Flex p={8} flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={4} w={'full'} maxW={'md'}>
+          <Heading fontSize={'2xl'}>Sign in to your account</Heading>
+          <FormControl id="email">
+            <FormLabel>Email address</FormLabel>
+            <Input type="email" />
+          </FormControl>
+          <FormControl id="password">
+            <FormLabel>Password</FormLabel>
+            <Input type="password" />
+          </FormControl>
+          <Stack spacing={6}>
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              align={'start'}
+              justify={'space-between'}
+            >
+              <Checkbox>Remember me</Checkbox>
+              <Link color={'blue.500'}>Forgot password?</Link>
+            </Stack>
+            <Button colorScheme={'blue'} variant={'solid'}>
+              <NavLink to="/">Sign in</NavLink>
+            </Button>
+          </Stack>
+        </Stack>
+      </Flex>
+      <Flex flex={1}>
+        <Image
+          alt={'Login Image'}
+          objectFit={'cover'}
+          src={
+            'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80'
+          }
+        />
+      </Flex>
+    </Stack>
+  );
+}
