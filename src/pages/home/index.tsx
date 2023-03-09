@@ -16,6 +16,25 @@ export const HomePage: FunctionComponent = () => {
   };
   return (
     <div className="desktop-5">
+      {first ? (
+        <button
+          style={{
+            color: 'white',
+            width: 80,
+            position: 'absolute',
+            right: 250,
+
+            border: 1,
+            zIndex: 91,
+            top: 45,
+          }}
+          onClick={logout}
+        >
+          Logout
+        </button>
+      ) : (
+        0
+      )}
       <div className="div">
         <p className="p">{`Оказываем профессиональные услуги для создания `}</p>
         <p className="p1">{`идеальной команды на современном рынке труда. `}</p>
@@ -30,7 +49,7 @@ export const HomePage: FunctionComponent = () => {
           <p className="p">Обьедините лучшие таланты и идеи в одну команду</p>
           <p className="p1">с помощью нашей уникальной платформы</p>
         </div>
-        <div className="div4">Вакансии</div>
+        <div className="div4">Вакансvии</div>
         <div className="div5">Компании</div>
         <div className="log-in">
           {' '}
@@ -45,7 +64,7 @@ export const HomePage: FunctionComponent = () => {
         <div className="div7">Добавить вакансии</div>
         <div className="div8">Личный кабинет</div>
         <div className="div9">{`Присоединиться к команде `}</div>
-        <div className="div10">О нас</div>
+
         <div className="dream-team">Dream Team</div>
       </div>
       <div className="block-2">
@@ -55,7 +74,9 @@ export const HomePage: FunctionComponent = () => {
           бизнес-целей
         </div>
         <div className="div12">{`Предлагаем проверенную систему поиска талантов, которая поможет вам найти лучших кандидатов на рынке. `}</div>
-        <div className="div13">О нас</div>
+        <Link to="profile" className="div10">
+          Profile
+        </Link>
         <img
           className="objects-icon"
           alt=""
@@ -126,20 +147,6 @@ export const HomePage: FunctionComponent = () => {
               >
                 Profile
               </Link>
-              <button
-                style={{
-                  textDecoration: 'none',
-                  color: 'white',
-                  width: 80,
-                  position: 'absolute',
-                  left: 750,
-                  top: 80,
-                }}
-                className="sign-in1"
-                onClick={logout}
-              >
-                Logout
-              </button>
             </>
           ) : (
             <Link
@@ -154,13 +161,19 @@ export const HomePage: FunctionComponent = () => {
       </div>
       <div className="parent">
         <div className="div25">
-          <div className="sign-in1">О нас</div>
+          <div className="sign-in1">
+            <Link to="/profile">Profile</Link>{' '}
+          </div>
         </div>
         <div className="div27">
-          <div className="sign-in1">Компании</div>
+          <div className="sign-in1">
+            <Link to="/teams">Team</Link>{' '}
+          </div>
         </div>
         <div className="div29">
-          <div className="sign-in1">Вакансии</div>
+          <div className="sign-in1">
+            <Link to="/resume">Resume</Link>{' '}
+          </div>
         </div>
         <div className="div31">
           <div className="sign-in1">Присоединиться к команде</div>

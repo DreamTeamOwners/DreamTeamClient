@@ -1,0 +1,235 @@
+.createTeamChild {
+  position: absolute;
+  top: 0;
+  left: 102px;
+  background-color: #f9f9ff;
+  width: 121px;
+  height: 686px;
+}
+.createTeamItem {
+  position: absolute;
+  top: 106px;
+  left: 875px;
+}
+.createTeamInner,
+.dreamTeam {
+  position: absolute;
+  top: 106px;
+  left: 1112px;
+}
+.dreamTeam {
+  top: 101px;
+  left: 283px;
+  font-size: 24px;
+  color: #000;
+}
+.div {
+  top: 121px;
+  left: 897px;
+  color: #011528;
+}
+.div,
+.div1,
+.div2 {
+  position: absolute;
+}
+.div1 {
+  top: 121px;
+  left: 1149px;
+  color: #011528;
+}
+.div2 {
+  top: 164px;
+  left: 891px;
+  font-size: 14px;
+}
+.vectorIcon {
+  position: absolute;
+  top: 129.15px;
+  left: 1039.63px;
+  width: 12.73px;
+  height: 7.58px;
+}
+.div3 {
+  position: absolute;
+  top: 121px;
+  left: 1131px;
+  color: #011528;
+}
+.div4,
+.div5 {
+  position: absolute;
+  left: 283px;
+}
+.div4 {
+  top: 403px;
+  color: #010314;
+}
+.div5 {
+  top: 518px;
+}
+.div5,
+.div6,
+.div7 {
+  color: #010314;
+}
+.div6 {
+  position: absolute;
+  top: 680px;
+  left: 283px;
+}
+.div7 {
+  top: 173px;
+}
+.div7,
+.div8,
+.rectangleInput {
+  position: absolute;
+  left: 283px;
+}
+.div8 {
+  top: 288px;
+  color: #010314;
+}
+.rectangleInput {
+  background-color: transparent;
+  top: 432px;
+}
+.createTeamChild1,
+.createTeamChild2,
+.createTeamChild3,
+.createTeamChild4 {
+  background-color: transparent;
+  position: absolute;
+  top: 547px;
+  left: 283px;
+}
+.createTeamChild2,
+.createTeamChild3,
+.createTeamChild4 {
+  top: 709px;
+}
+.createTeamChild3,
+.createTeamChild4 {
+  top: 202px;
+}
+.createTeamChild4 {
+  top: 317px;
+}
+.div9,
+.hhhtpchetaChetaTam {
+  position: absolute;
+  left: 303px;
+}
+.div9 {
+  top: 561px;
+  display: inline-block;
+  width: 414px;
+}
+.hhhtpchetaChetaTam {
+  top: 728px;
+}
+.div10,
+.dreamTeam1,
+.juniormidle {
+  position: absolute;
+  top: 219px;
+  left: 304px;
+}
+.dreamTeam1,
+.juniormidle {
+  top: 336px;
+}
+.dreamTeam1 {
+  top: 450px;
+}
+.createTeamChild5,
+.ellipseIcon {
+  position: absolute;
+  top: 142px;
+  left: 142px;
+  width: 40px;
+  height: 40px;
+}
+.createTeamChild5 {
+  top: 232px;
+}
+.createTeamChild6,
+.createTeamChild7,
+.createTeamChild8 {
+  position: absolute;
+  top: 322px;
+  left: 142px;
+  width: 40px;
+  height: 40px;
+}
+.createTeamChild7,
+.createTeamChild8 {
+  top: 413px;
+}
+.createTeamChild8 {
+  top: 502px;
+}
+.createTeamChild9 {
+  position: absolute;
+  top: 33px;
+  left: 134px;
+  width: 56px;
+  height: 59px;
+  object-fit: cover;
+}
+.createTeamChild10 {
+  position: absolute;
+  top: 78px;
+  left: 174px;
+  width: 16px;
+  height: 16px;
+}
+.materialSymbolseditOutlineIcon {
+  position: absolute;
+  top: 81px;
+  left: 177px;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+.fluentpeopleTeam16FilledIcon,
+.materialSymbolscalendarTodaIcon {
+  position: absolute;
+  top: 154px;
+  left: 152px;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.materialSymbolscalendarTodaIcon {
+  top: 423px;
+}
+.ionanalyticsSharpIcon,
+.materialSymbolschatBubbleOIcon,
+.materialSymbolsphoneEnabledIcon {
+  position: absolute;
+  top: 332px;
+  left: 152px;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+.ionanalyticsSharpIcon,
+.materialSymbolschatBubbleOIcon {
+  top: 242px;
+}
+.ionanalyticsSharpIcon {
+  top: 512px;
+}
+.createTeam {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 16px;
+  color: #adadad;
+  font-family: "Golos Text";
+}

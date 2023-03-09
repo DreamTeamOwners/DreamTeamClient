@@ -101,6 +101,7 @@ const ResumePage = () => {
               <Box>
                 <Text color="#828BA2">Email</Text>
                 <Input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   bg="#EFF2F9"
                   border="1px"
@@ -291,12 +292,19 @@ const ResumePage = () => {
             </Box>
           </Box>
         </GridItem>
-        <GridItem paddingX={70} paddingY="50" bg="gray" area={'main'}>
-          <Grid p={20} bg="#D9D9D9" w="100%" h="100%">
+        <GridItem paddingX="100" paddingY="10" bg="gray" area={'main'}>
+          <Grid p={5} bg="#D9D9D9" w="100%" h="100%">
             <Box bg="white">
               <HStack mt={'60px'}>
                 <Text mb="8px" maxW={400} color="#000">
                   {value}
+                </Text>
+              </HStack>
+            </Box>
+            <Box bg="white">
+              <HStack mt={'60px'}>
+                <Text mb="8px" maxW={400} color="#000">
+                  {email}
                 </Text>
               </HStack>
             </Box>

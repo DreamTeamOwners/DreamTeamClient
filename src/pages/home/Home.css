@@ -136,6 +136,7 @@
   width: 211px;
   height: 19px;
 }
+
 .div10,
 .dream-team {
   top: 567px;
@@ -147,6 +148,9 @@
   display: inline-block;
   width: 92.9px;
   height: 20px;
+}
+.div10{
+  color: #000;
 }
 .footer {
   position: absolute;

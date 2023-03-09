@@ -7,6 +7,7 @@ import AuthPage from './auth';
 import ResumePage from './resume';
 import SignupCard from './auth/register';
 import UserProfileEdit from './Profile';
+import CreateTeam from './team';
 export function Pages() {
   return (
     <Routes>
@@ -17,6 +18,7 @@ export function Pages() {
       <Route path="/register" element={<SignupCard />} />
       <Route path="/resume" element={<ResumePage />} />
       <Route path="/profile" element={<UserProfileEdit />} />
+      <Route path="/teams" element={<CreateTeam />} />
     </Routes>
   );
 }
