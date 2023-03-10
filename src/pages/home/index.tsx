@@ -14,75 +14,86 @@ import StatsTitleDescription from './F3';
 import FeaturePage from './Feature';
 import SplitWithImage from './Feature2';
 import Footer from './Footer';
+import { lazy, Suspense } from "react";
+import VoxelDogLoader from ".././../3d/voxel-dog-loader";
+
+const LazyVoxelDog = lazy(() => import(".././../3d/voxel-dog"));
 
 export function HomePage() {
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')}>
-        <Container maxW={'container.sm'}>
+      <Box bg={useColorModeValue("gray.100", "gray.900")}>
+        <Container maxW={"container.sm"}>
           <Stack
             as={Box}
-            textAlign={'center'}
+            textAlign={"center"}
             spacing={{ base: 8, md: 14 }}
             py={{ base: 20, md: 36 }}
           >
             <Heading
               fontWeight={600}
-              fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-              lineHeight={'110%'}
+              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+              lineHeight={"110%"}
             >
               Соберите <br />
-              <Text as={'span'} color={'green.400'}>
+              <Text as={"span"} color={"green.400"}>
                 идеальную команду
               </Text>
+              {/* ======================== */}
+              <Suspense fallback={<VoxelDogLoader />}>
+                <LazyVoxelDog />
+              </Suspense>
+              {/* ============================ */}
               <br />
-              <Text fontSize={{ base: 'xl', sm: 'xl', md: 'xl' }} as={'span'}>
+              <Text fontSize={{ base: "xl", sm: "xl", md: "xl" }} as={"span"}>
                 для успешной работы на современном рынке.
               </Text>
             </Heading>
-            <Text color={'gray.500'}>
-              Зарегистрируйтесь сейчас и ощутите все преимущества нашего веб-сайта.
+            <Text color={"gray.500"}>
+              Зарегистрируйтесь сейчас и ощутите все преимущества нашего
+              веб-сайта.
             </Text>
+
             <Stack
-              direction={'column'}
+              direction={"column"}
               spacing={3}
-              align={'center'}
-              alignSelf={'center'}
-              position={'relative'}
+              align={"center"}
+              alignSelf={"center"}
+              position={"relative"}
             >
               <Button
-                colorScheme={'green'}
-                bg={'green.400'}
-                rounded={'full'}
+                colorScheme={"green"}
+                bg={"green.400"}
+                rounded={"full"}
                 px={6}
                 _hover={{
-                  bg: 'green.500',
+                  bg: "green.500",
                 }}
               >
                 Get Started
               </Button>
-              <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+              <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
                 Learn more
               </Button>
               <Box>
                 <Icon
                   as={Arrow}
-                  color={useColorModeValue('gray.800', 'gray.300')}
+                  color={useColorModeValue("gray.800", "gray.300")}
                   w={71}
-                  position={'absolute'}
+                  position={"absolute"}
                   right={-71}
-                  top={'10px'}
+                  top={"10px"}
                 />
-                <Text
-                  fontSize={'lg'}
-                  fontFamily={'Caveat'}
-                  position={'absolute'}
-                  right={'-125px'}
-                  top={'-15px'}
-                  transform={'rotate(10deg)'}
+                {/* <Text
+                  fontSize={"lg"}
+                  fontFamily={"Caveat"}
+                  position={"absolute"}
+                  right={"-125px"}
+                  top={"-15px"}
+                  transform={"rotate(10deg)"}
                 >
                   Starting at $15/mo
-                </Text>
+                </Text> */}
               </Box>
             </Stack>
           </Stack>
