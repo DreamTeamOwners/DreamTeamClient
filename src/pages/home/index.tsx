@@ -8,14 +8,15 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
-  useColorMode,
-} from '@chakra-ui/react';
-import StatsTitleDescription from './F3';
-import FeaturePage from './Feature';
-import SplitWithImage from './Feature2';
-import Footer from './Footer';
+  Link,
+} from "@chakra-ui/react";
+import StatsTitleDescription from "./F3";
+import FeaturePage from "./Feature";
+import SplitWithImage from "./Feature2";
+import Footer from "./Footer";
 import { lazy, Suspense } from "react";
 import VoxelDogLoader from ".././../3d/voxel-dog-loader";
+import { NavLink } from "react-router-dom";
 
 const LazyVoxelDog = lazy(() => import(".././../3d/voxel-dog"));
 
@@ -31,14 +32,13 @@ export function HomePage() {
             py={{ base: 20, md: 36 }}
           >
             <Heading
+              // w={"90%"}
               fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-              lineHeight={"110%"}
+              fontSize={{ base: "2xl", sm: "2xl", md: "4xl" }}
+              lineHeight={"120%"}
             >
-              Соберите <br />
-              <Text as={"span"} color={"green.400"}>
-                идеальную команду
-              </Text>
+              Соберите идеальную команду для успешной работы на современном
+              рынке.
               {/* ======================== */}
               <Suspense fallback={<VoxelDogLoader />}>
                 <LazyVoxelDog />
@@ -61,40 +61,20 @@ export function HomePage() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Button
-                colorScheme={"green"}
-                bg={"green.400"}
-                rounded={"full"}
-                px={6}
-                _hover={{
-                  bg: "green.500",
-                }}
-              >
-                Get Started
-              </Button>
-              <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
-                Learn more
-              </Button>
-              <Box>
-                <Icon
-                  as={Arrow}
-                  color={useColorModeValue("gray.800", "gray.300")}
-                  w={71}
-                  position={"absolute"}
-                  right={-71}
-                  top={"10px"}
-                />
-                {/* <Text
-                  fontSize={"lg"}
-                  fontFamily={"Caveat"}
-                  position={"absolute"}
-                  right={"-125px"}
-                  top={"-15px"}
-                  transform={"rotate(10deg)"}
+              <Link href="http://localhost:3000/resume">
+                <Button
+                  rounded={"full"}
+                  border={"1px solid white"}
+                  borderRadius={"10px"}
+                  py={6}
+                  px={10}
+                  _hover={{
+                    bg: "white.500",
+                  }}
                 >
-                  Starting at $15/mo
-                </Text> */}
-              </Box>
+                  Создать команду
+                </Button>
+              </Link>
             </Stack>
           </Stack>
         </Container>
@@ -108,8 +88,8 @@ export function HomePage() {
 }
 
 const Arrow = createIcon({
-  displayName: 'Arrow',
-  viewBox: '0 0 72 24',
+  displayName: "Arrow",
+  viewBox: "0 0 72 24",
   path: (
     <path
       fillRule="evenodd"
