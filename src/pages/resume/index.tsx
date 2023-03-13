@@ -1,364 +1,162 @@
-import React, { useState } from "react";
+import Icon from "@chakra-ui/icon/dist/icon";
+import { CheckIcon } from "@chakra-ui/icons";
 import {
-  Progress,
-  Box,
-  ButtonGroup,
   Button,
-  Heading,
+  Checkbox,
   Flex,
   FormControl,
-  GridItem,
   FormLabel,
+  Heading,
   Input,
-  Select,
-  SimpleGrid,
-  InputLeftAddon,
-  InputGroup,
+  Link,
+  Stack,
+  Image,
   Textarea,
-  FormHelperText,
-  InputRightElement,
+  Text,
+  Box,
+  Container,
+  SimpleGrid,
+  HStack,
+  VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
-import { useToast } from "@chakra-ui/react";
+const features = Array.apply(null, Array(8)).map(function (x, i) {
+  return {
+    id: i,
+    title: "Lorem ipsum dolor sit amet",
+    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.",
+  };
+});
 
-const Form1 = () => {
-  const [show, setShow] = React.useState(false);
-  const handleClick = () => setShow(!show);
+export default function SplitScreen() {
+  const [username, setusername] = useState("");
   return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal" mb="2%">
-        User Registration
-      </Heading>
-      <Flex>
-        <FormControl mr="5%">
-          <FormLabel htmlFor="first-name" fontWeight={"normal"}>
-            First name
-          </FormLabel>
-          <Input id="first-name" placeholder="First name" />
-        </FormControl>
-
-        <FormControl>
-          <FormLabel htmlFor="last-name" fontWeight={"normal"}>
-            Last name
-          </FormLabel>
-          <Input id="last-name" placeholder="First name" />
-        </FormControl>
-      </Flex>
-      <FormControl mt="2%">
-        <FormLabel htmlFor="email" fontWeight={"normal"}>
-          Email address
-        </FormLabel>
-        <Input id="email" type="email" />
-        <FormHelperText>We'll never share your email.</FormHelperText>
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="password" fontWeight={"normal"} mt="2%">
-          Password
-        </FormLabel>
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={show ? "text" : "password"}
-            placeholder="Enter password"
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
-    </>
-  );
-};
-
-const Form2 = () => {
-  return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal" mb="2%">
-        User Details
-      </Heading>
-      <FormControl as={GridItem} colSpan={[6, 3]}>
-        <FormLabel
-          htmlFor="country"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: "gray.50",
-          }}
-        >
-          Country / Region
-        </FormLabel>
-        <Select
-          id="country"
-          name="country"
-          autoComplete="country"
-          placeholder="Select option"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        >
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </Select>
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={6}>
-        <FormLabel
-          htmlFor="street_address"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: "gray.50",
-          }}
-          mt="2%"
-        >
-          Street address
-        </FormLabel>
-        <Input
-          type="text"
-          name="street_address"
-          id="street_address"
-          autoComplete="street-address"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
-        <FormLabel
-          htmlFor="city"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: "gray.50",
-          }}
-          mt="2%"
-        >
-          City
-        </FormLabel>
-        <Input
-          type="text"
-          name="city"
-          id="city"
-          autoComplete="city"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="state"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: "gray.50",
-          }}
-          mt="2%"
-        >
-          State / Province
-        </FormLabel>
-        <Input
-          type="text"
-          name="state"
-          id="state"
-          autoComplete="state"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="postal_code"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: "gray.50",
-          }}
-          mt="2%"
-        >
-          ZIP / Postal
-        </FormLabel>
-        <Input
-          type="text"
-          name="postal_code"
-          id="postal_code"
-          autoComplete="postal-code"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-    </>
-  );
-};
-
-const Form3 = () => {
-  return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal">
-        Social Handles
-      </Heading>
-      <SimpleGrid columns={1} spacing={6}>
-        <FormControl as={GridItem} colSpan={[3, 2]}>
-          <FormLabel
-            fontSize="sm"
-            fontWeight="md"
-            color="gray.700"
-            _dark={{
-              color: "gray.50",
-            }}
-          >
-            Website
-          </FormLabel>
-          <InputGroup size="sm">
-            <InputLeftAddon
-              bg="gray.50"
-              _dark={{
-                bg: "gray.800",
-              }}
-              color="gray.500"
-              rounded="md"
-            >
-              http://
-            </InputLeftAddon>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+      <Flex p={8} flex={1} align={"center"} justify={"center"}>
+        <Stack spacing={4} w={"full"} maxW={"md"}>
+          lineHeight={"0%"}
+          <Heading fontSize={"xl"}>Введите вашу конктактную информацию</Heading>
+          <FormControl id="text">
+            <FormLabel>Должность</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Имя</FormLabel>
             <Input
-              type="tel"
-              placeholder="www.example.com"
-              focusBorderColor="brand.400"
-              rounded="md"
+              type="text"
+              value={username}
+              onChange={(e) => setusername(e.target.value)}
             />
-          </InputGroup>
-        </FormControl>
-
-        <FormControl id="email" mt={1}>
-          <FormLabel
-            fontSize="sm"
-            fontWeight="md"
-            color="gray.700"
-            _dark={{
-              color: "gray.50",
-            }}
-          >
-            About
-          </FormLabel>
-          <Textarea
-            placeholder="you@example.com"
-            rows={3}
-            shadow="sm"
-            focusBorderColor="brand.400"
-            fontSize={{
-              sm: "sm",
-            }}
-          />
-          <FormHelperText>
-            Brief description for your profile. URLs are hyperlinked.
-          </FormHelperText>
-        </FormControl>
-      </SimpleGrid>
-    </>
-  );
-};
-
-export default function multistep() {
-  const toast = useToast();
-  const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(33.33);
-  return (
-    <>
-      <Box
-        borderWidth="1px"
-        rounded="lg"
-        shadow="1px 1px 3px rgba(0,0,0,0.3)"
-        maxWidth={800}
-        p={6}
-        m="10px auto"
-        as="form"
-      >
-        <Progress
-          hasStripe
-          value={progress}
-          mb="5%"
-          mx="5%"
-          isAnimated
-        ></Progress>
-        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
-        <ButtonGroup mt="5%" w="100%">
-          <Flex w="100%" justifyContent="space-between">
-            <Flex>
-              <Button
-                onClick={() => {
-                  setStep(step - 1);
-                  setProgress(progress - 33.33);
-                }}
-                isDisabled={step === 1}
-                colorScheme="teal"
-                variant="solid"
-                w="7rem"
-                mr="5%"
-              >
-                Back
-              </Button>
-              <Button
-                w="7rem"
-                isDisabled={step === 3}
-                onClick={() => {
-                  setStep(step + 1);
-                  if (step === 3) {
-                    setProgress(100);
-                  } else {
-                    setProgress(progress + 33.33);
-                  }
-                }}
-                colorScheme="teal"
-                variant="outline"
-              >
-                Next
-              </Button>
-            </Flex>
-            {step === 3 ? (
-              <Button
-                w="7rem"
-                colorScheme="red"
-                variant="solid"
-                onClick={() => {
-                  toast({
-                    title: "Account created.",
-                    description: "We've created your account for you.",
-                    status: "success",
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}
-              >
-                Submit
-              </Button>
-            ) : null}
-          </Flex>
-        </ButtonGroup>
-      </Box>
-    </>
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Фамилия</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Email</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Страна</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Контакты</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Город</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Описание</FormLabel>
+            <Textarea placeholder="Here is a sample placeholder" />
+          </FormControl>
+        </Stack>
+      </Flex>
+      <Flex flex={1} bg="#DFE1F4">
+        <Box p={4}>
+          <Stack spacing={4} as={Container} maxW={"xl"} textAlign={"center"}>
+            <Heading fontSize={"xl"}>
+              Должность
+              <Text color={"gray.600"} fontSize={"14px"}>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Имя
+              <Text color={"gray.600"} fontSize={"14px"}>
+                Актан
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Фамилия
+              <Text color={"gray.600"} fontSize={"14px"}>
+                Жапаралиев
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Email
+              <Text color={"gray.600"} fontSize={"14px"}>
+                aktanjapa@gmail.com
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Страна
+              <Text color={"gray.600"} fontSize={"14px"}>
+                kyrgyzstan
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Контакты
+              <Text color={"gray.600"} fontSize={"14px"}>
+                996777777777
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Город
+              <Text color={"gray.600"} fontSize={"14px"}>
+                Bishkek
+              </Text>
+            </Heading>
+            <Heading fontSize={"xl"}>
+              Описание
+              <Text color={"gray.600"} fontSize={"14px"}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+                veniam sunt deserunt nemo iste blanditiis consectetur alias
+                dignissimos ducimus molestias, ipsam quibusdam distinctio cumque
+                assumenda odio, in eos provident! Qui. Temporibus ut officia
+                soluta libero eos eveniet, nobis iure aperiam veritatis
+                voluptatem facere quam iste hic esse nesciunt, nam eaque a
+                perspiciatis ab. Molestiae nihil quaerat itaque, tenetur earum
+                quis! Odit eos, itaque ipsam explicabo reprehenderit amet ullam
+                ducimus, non aspernatur omnis perspiciatis possimus nam quaerat
+                doloremque vitae dicta quos aut nesciunt neque doloribus
+                accusamus nihil officiis corrupti. Voluptates, molestias? Beatae
+                eum, facere quis natus esse sunt quia vero totam possimus
+                dolore, recusandae eos, obcaecati earum quidem eius ducimus
+                sequi! Quo mollitia reiciendis iste rerum dolores inventore
+                perspiciatis corporis distinctio? Dolore consequuntur quisquam
+                rerum, ducimus deserunt quo. Adipisci illo ratione dolor
+                cupiditate quia dicta sint recusandae voluptate, eligendi
+                blanditiis enim quae fugiat esse impedit aliquid labore
+                quibusdam reiciendis molestias sed. Fuga placeat corporis sunt
+                provident aperiam facilis ea quia! Obcaecati beatae totam dolore
+                ipsum autem. Quas libero vitae molestias minus quam, quia,
+                perferendis delectus impedit ut, nulla odio officia quis! Vero
+                itaque, accusamus fuga officia hic iste totam quam dolores
+                molestias quae necessitatibus animi, dignissimos accusantium,
+                amet error ipsam. Vel at officiis eveniet alias sit ducimus
+                error dolores iusto quae? Fugit eveniet, voluptatem quos rem
+                placeat quis dicta, reiciendis labore repudiandae, porro rerum
+                tempora. Quibusdam rerum consequuntur iure numquam excepturi, ea
+                repellendus ipsum illum est quam, quas soluta, hic earum.
+              </Text>
+            </Heading>
+          </Stack>
+        </Box>
+      </Flex>
+    </Stack>
   );
 }
