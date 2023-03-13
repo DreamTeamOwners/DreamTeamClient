@@ -1,310 +1,151 @@
-import { AddIcon } from '@chakra-ui/icons';
+import Icon from '@chakra-ui/icon/dist/icon';
+import { CheckIcon } from '@chakra-ui/icons';
 import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Input,
-  HStack,
-  Text,
-  TagLabel,
-  Tag,
-  TagLeftIcon,
-  Textarea,
   Button,
-  IconButton,
-  useColorMode,
-  useColorModeValue,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Link,
+  Stack,
+  Image,
+  Textarea,
+  Text,
+  Box,
+  Container,
+  SimpleGrid,
+  HStack,
+  VStack,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const ResumePage = () => {
-  const [value, setValue] = React.useState('');
-
-  const handleInputChange = (e: any) => {
-    const inputValue = e.target.value;
-    setValue(inputValue);
+const features = Array.apply(null, Array(8)).map(function (x, i) {
+  return {
+    id: i,
+    title: 'Lorem ipsum dolor sit amet',
+    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.',
   };
-  const [email, setEmail] = useState('');
+});
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const emailValue = e.target.value;
-    setEmail(emailValue);
-  };
-
+export default function SplitScreen() {
+  const [username, setusername] = useState('');
   return (
-    <div style={{ padding: '30px', background: 'white' }}>
-      <Grid
-        background="white"
-        templateAreas={`"nav main"`}
-        // gridTemplateRows={'100x 1fr 100%'}
-        gridTemplateColumns={'50% 1fr'}
-        gap="0"
-        color="blackAlpha.700"
-        fontWeight="bold"
-      >
-        <GridItem pl="2" area={'nav'}>
-          <Box>
-            <Flex p={2} gap="30px">
-              <Box>
-                <Text color="#828BA2">Требуемая должность</Text>
-                <Input
-                  type="name"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-              <Box>
-                <Text color="#828BA2">image</Text>
-                <Input
-                  type="name"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-            </Flex>
-            <Flex p={2} gap="30px">
-              <Box>
-                <Text color="#828BA2">First Name</Text>
-                <Input
-                  type="name"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-              <Box>
-                <Text color="#828BA2">Last Name</Text>
-                <Input
-                  type="name"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-            </Flex>
-            <Flex p={2} gap="30px">
-              <Box>
-                <Text color="#828BA2">Email</Text>
-                <Input
-                  type="email"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-              <Box>
-                <Text color="#828BA2">Phone</Text>
-                <Input
-                  type="number"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-            </Flex>
-            <Flex p={2} gap="30px">
-              <Box>
-                <Text color="#828BA2">Country</Text>
-                <Input
-                  type="name"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-              <Box>
-                <Text color="#828BA2">Citi</Text>
-                <Input
-                  type="email"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  w="300px"
-                  h="40px"
-                  fontSize="16px"
-                />
-              </Box>
-            </Flex>
-            <Box>
-              <Text color="#000" fontSize="18px">
-                Professional Summary
+    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+      <Flex p={8} flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={4} w={'full'} maxW={'md'}>
+          lineHeight={'0%'}
+          <Heading fontSize={'xl'}>Введите вашу конктактную информацию</Heading>
+          <FormControl id="text">
+            <FormLabel>Должность</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Имя</FormLabel>
+            <Input type="text" value={username} onChange={(e) => setusername(e.target.value)} />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Фамилия</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Email</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Страна</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Контакты</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Город</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Описание</FormLabel>
+            <Textarea placeholder="Here is a sample placeholder" />
+          </FormControl>
+        </Stack>
+      </Flex>
+      <Flex flex={1} bg="#DFE1F4">
+        <Box p={4}>
+          <Stack spacing={4} as={Container} maxW={'xl'} textAlign={'center'}>
+            <Heading fontSize={'xl'}>
+              Должность
+              <Text color={'gray.600'} fontSize={'14px'}>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
               </Text>
-              <Text color="#828BA2" fontSize="14px" maxW={600}>
-                Write 2-4 short & energetic sentences to interest the reader! Mention your role,
-                experience & most importantly - your biggest achievements, best qualities and
-                skills.
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Имя
+              <Text color={'gray.600'} fontSize={'14px'}>
+                Актан
               </Text>
-              <Box>
-                <Textarea
-                  value={value}
-                  onChange={handleInputChange}
-                  placeholder="Here is a sample placeholder"
-                  size="sm"
-                  w="55%"
-                  h="200px"
-                  bg="#EFF2F9"
-                  border="1px"
-                  borderRadius="2px"
-                  fontSize="16px"
-                />
-              </Box>
-              <Flex gap="10px">
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-              </Flex>
-              <Flex gap="10px" mt="10px">
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-              </Flex>
-              <Flex gap="10px" mt="10px">
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-                <Button
-                  variant="subtle"
-                  border="none"
-                  borderRadius="5px"
-                  p="1px"
-                  bg="gray"
-                  gap="3px"
-                >
-                  <Text>Cyan</Text>
-                  <Text boxSize="8px" as={AddIcon} />
-                </Button>
-              </Flex>
-            </Box>
-          </Box>
-        </GridItem>
-        <GridItem paddingX={70} paddingY="50" bg="gray" area={'main'}>
-          <Grid p={20} bg="#D9D9D9" w="100%" h="100%">
-            <Box bg="white">
-              <HStack mt={'60px'}>
-                <Text mb="8px" maxW={400} color="#000">
-                  {value}
-                </Text>
-              </HStack>
-            </Box>
-          </Grid>
-        </GridItem>
-      </Grid>
-    </div>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Фамилия
+              <Text color={'gray.600'} fontSize={'14px'}>
+                Жапаралиев
+              </Text>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Email
+              <Text color={'gray.600'} fontSize={'14px'}>
+                aktanjapa@gmail.com
+              </Text>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Страна
+              <Text color={'gray.600'} fontSize={'14px'}>
+                kyrgyzstan
+              </Text>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Контакты
+              <Text color={'gray.600'} fontSize={'14px'}>
+                996777777777
+              </Text>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Город
+              <Text color={'gray.600'} fontSize={'14px'}>
+                Bishkek
+              </Text>
+            </Heading>
+            <Heading fontSize={'xl'}>
+              Описание
+              <Text color={'gray.600'} fontSize={'14px'}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem veniam sunt deserunt
+                nemo iste blanditiis consectetur alias dignissimos ducimus molestias, ipsam
+                quibusdam distinctio cumque assumenda odio, in eos provident! Qui. Temporibus ut
+                officia soluta libero eos eveniet, nobis iure aperiam veritatis voluptatem facere
+                quam iste hic esse nesciunt, nam eaque a perspiciatis ab. Molestiae nihil quaerat
+                itaque, tenetur earum quis! Odit eos, itaque ipsam explicabo reprehenderit amet
+                ullam ducimus, non aspernatur omnis perspiciatis possimus nam quaerat doloremque
+                vitae dicta quos aut nesciunt neque doloribus accusamus nihil officiis corrupti.
+                Voluptates, molestias? Beatae eum, facere quis natus esse sunt quia vero totam
+                possimus dolore, recusandae eos, obcaecati earum quidem eius ducimus sequi! Quo
+                mollitia reiciendis iste rerum dolores inventore perspiciatis corporis distinctio?
+                Dolore consequuntur quisquam rerum, ducimus deserunt quo. Adipisci illo ratione
+                dolor cupiditate quia dicta sint recusandae voluptate, eligendi blanditiis enim quae
+                fugiat esse impedit aliquid labore quibusdam reiciendis molestias sed. Fuga placeat
+                corporis sunt provident aperiam facilis ea quia! Obcaecati beatae totam dolore ipsum
+                autem. Quas libero vitae molestias minus quam, quia, perferendis delectus impedit
+                ut, nulla odio officia quis! Vero itaque, accusamus fuga officia hic iste totam quam
+                dolores molestias quae necessitatibus animi, dignissimos accusantium, amet error
+                ipsam. Vel at officiis eveniet alias sit ducimus error dolores iusto quae? Fugit
+                eveniet, voluptatem quos rem placeat quis dicta, reiciendis labore repudiandae,
+                porro rerum tempora. Quibusdam rerum consequuntur iure numquam excepturi, ea
+                repellendus ipsum illum est quam, quas soluta, hic earum.
+              </Text>
+            </Heading>
+          </Stack>
+        </Box>
+      </Flex>
+    </Stack>
   );
-};
-
-export default ResumePage;
+}
