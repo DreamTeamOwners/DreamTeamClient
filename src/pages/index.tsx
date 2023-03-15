@@ -1,10 +1,10 @@
-import { Route, Router, Routes } from 'react-router-dom';
-import React, { ComponentType, lazy, LazyExoticComponent } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './home';
 import ResumePage from './resume';
 import UserProfileEdit from './Profile';
 import LogIn from './auth/LogIn';
 import SignUp from './auth/SignUp';
+import Comanda from './comanda';
 export function Pages() {
   return (
     <Routes>
@@ -13,6 +13,7 @@ export function Pages() {
       <Route path="/register" element={<SignUp />} />
       <Route path="/resume" element={<ResumePage />} />
       <Route path="/profile" element={<UserProfileEdit />} />
+      <Route path="/comanda" element={<Comanda />} />
     </Routes>
   );
 }

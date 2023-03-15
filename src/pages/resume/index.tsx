@@ -1,16 +1,10 @@
-import Icon from '@chakra-ui/icon/dist/icon';
-import { CheckIcon } from '@chakra-ui/icons';
 import {
-  Button,
-  Checkbox,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
-  Link,
   Stack,
-  Image,
   Textarea,
   Text,
   Box,
@@ -18,134 +12,172 @@ import {
   SimpleGrid,
   HStack,
   VStack,
-} from '@chakra-ui/react';
-import { useState } from 'react';
+  WrapItem,
+  Avatar,
+} from "@chakra-ui/react";
+import { useState } from "react";
 
-const features = Array.apply(null, Array(8)).map(function (x, i) {
-  return {
-    id: i,
-    title: 'Lorem ipsum dolor sit amet',
-    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.',
-  };
-});
+
 
 export default function SplitScreen() {
-  const [username, setusername] = useState('');
+  const [username, setUserName] = useState("");
+  const [surname, setSurName] = useState("");
+  const [job, setJob] = useState("");
+  const [email, setEmail] = useState("");
+  const [contacts, setContacts] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [description, setDescription] = useState("");
+  const [github, setGithub] = useState("");
+
   return (
-    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-      <Flex p={8} flex={1} align={'center'} justify={'center'}>
-        <Stack spacing={4} w={'full'} maxW={'md'}>
-          lineHeight={'0%'}
-          <Heading fontSize={'xl'}>Введите вашу конктактную информацию</Heading>
-          <FormControl id="text">
-            <FormLabel>Должность</FormLabel>
-            <Input type="text" />
-          </FormControl>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+      <Flex p={8} flex={1} align={"center"} justify={"center"}>
+        <Stack spacing={4} w={"full"} maxW={"md"}>
+          lineHeight={"0%"}
+          <Heading fontSize={"xl"}>Введите вашу конктактную информацию</Heading>
           <FormControl id="text">
             <FormLabel>Имя</FormLabel>
-            <Input type="text" value={username} onChange={(e) => setusername(e.target.value)} />
+            <Input
+              type="text"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </FormControl>
           <FormControl id="text">
             <FormLabel>Фамилия</FormLabel>
-            <Input type="text" />
+            <Input
+              type="text"
+              value={surname}
+              onChange={(e) => setSurName(e.target.value)}
+            />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Должность</FormLabel>
+            <Input
+              type="text"
+              value={job}
+              onChange={(e) => setJob(e.target.value)}
+            />
           </FormControl>
           <FormControl id="text">
             <FormLabel>Email</FormLabel>
-            <Input type="text" />
-          </FormControl>
-          <FormControl id="text">
-            <FormLabel>Страна</FormLabel>
-            <Input type="text" />
+            <Input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </FormControl>
           <FormControl id="text">
             <FormLabel>Контакты</FormLabel>
-            <Input type="text" />
+            <Input
+              type="text"
+              value={contacts}
+              onChange={(e) => setContacts(e.target.value)}
+            />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>Страна</FormLabel>
+            <Input
+              type="text"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            />
           </FormControl>
           <FormControl id="text">
             <FormLabel>Город</FormLabel>
-            <Input type="text" />
+            <Input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
           </FormControl>
           <FormControl id="text">
             <FormLabel>Описание</FormLabel>
-            <Textarea placeholder="Here is a sample placeholder" />
+            <Textarea
+              placeholder="Here is a sample placeholder"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </FormControl>
+          <FormControl id="text">
+            <FormLabel>GitHud</FormLabel>
+            <Input
+              type="text"
+              value={github}
+              onChange={(e) => setGithub(e.target.value)}
+            />
           </FormControl>
         </Stack>
       </Flex>
-      <Flex flex={1} bg="#DFE1F4">
-        <Box p={4}>
-          <Stack spacing={4} as={Container} maxW={'xl'} textAlign={'center'}>
-            <Heading fontSize={'xl'}>
-              Должность
-              <Text color={'gray.600'} fontSize={'14px'}>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+      <Box flex={1} bg="#DFE1F4" color="black">
+        <Box
+          flex={1}
+          bg="#DFE1F4"
+          color="black"
+          maxWidth={{ base: "100%", md: "50%" }}
+        >
+          <Flex
+            spacing={4}
+            as={Container}
+            maxW={"3xl"}
+            textAlign={"center"}
+            gap={"30px"}
+          >
+            <WrapItem>
+              <Avatar
+                size="2xl"
+                name="Segun Adebayo"
+                src="https://bit.ly/sage-adebayo"
+              />{" "}
+            </WrapItem>
+            <Box color={"black"}>
+              <Text fontSize={"30px"}>
+                {username} {surname}
               </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Имя
-              <Text color={'gray.600'} fontSize={'14px'}>
-                Актан
+              <Text fontSize={"16px"}>{job}</Text>
+              <Text fontSize={"14px"}>
+                {city} {country}
               </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Фамилия
-              <Text color={'gray.600'} fontSize={'14px'}>
-                Жапаралиев
+              <Text fontSize={"14px"}>
+                {email} {contacts}
               </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Email
-              <Text color={'gray.600'} fontSize={'14px'}>
-                aktanjapa@gmail.com
-              </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Страна
-              <Text color={'gray.600'} fontSize={'14px'}>
-                kyrgyzstan
-              </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Контакты
-              <Text color={'gray.600'} fontSize={'14px'}>
-                996777777777
-              </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Город
-              <Text color={'gray.600'} fontSize={'14px'}>
-                Bishkek
-              </Text>
-            </Heading>
-            <Heading fontSize={'xl'}>
-              Описание
-              <Text color={'gray.600'} fontSize={'14px'}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem veniam sunt deserunt
-                nemo iste blanditiis consectetur alias dignissimos ducimus molestias, ipsam
-                quibusdam distinctio cumque assumenda odio, in eos provident! Qui. Temporibus ut
-                officia soluta libero eos eveniet, nobis iure aperiam veritatis voluptatem facere
-                quam iste hic esse nesciunt, nam eaque a perspiciatis ab. Molestiae nihil quaerat
-                itaque, tenetur earum quis! Odit eos, itaque ipsam explicabo reprehenderit amet
-                ullam ducimus, non aspernatur omnis perspiciatis possimus nam quaerat doloremque
-                vitae dicta quos aut nesciunt neque doloribus accusamus nihil officiis corrupti.
-                Voluptates, molestias? Beatae eum, facere quis natus esse sunt quia vero totam
-                possimus dolore, recusandae eos, obcaecati earum quidem eius ducimus sequi! Quo
-                mollitia reiciendis iste rerum dolores inventore perspiciatis corporis distinctio?
-                Dolore consequuntur quisquam rerum, ducimus deserunt quo. Adipisci illo ratione
-                dolor cupiditate quia dicta sint recusandae voluptate, eligendi blanditiis enim quae
-                fugiat esse impedit aliquid labore quibusdam reiciendis molestias sed. Fuga placeat
-                corporis sunt provident aperiam facilis ea quia! Obcaecati beatae totam dolore ipsum
-                autem. Quas libero vitae molestias minus quam, quia, perferendis delectus impedit
-                ut, nulla odio officia quis! Vero itaque, accusamus fuga officia hic iste totam quam
-                dolores molestias quae necessitatibus animi, dignissimos accusantium, amet error
-                ipsam. Vel at officiis eveniet alias sit ducimus error dolores iusto quae? Fugit
-                eveniet, voluptatem quos rem placeat quis dicta, reiciendis labore repudiandae,
-                porro rerum tempora. Quibusdam rerum consequuntur iure numquam excepturi, ea
-                repellendus ipsum illum est quam, quas soluta, hic earum.
-              </Text>
-            </Heading>
-          </Stack>
+            </Box>
+          </Flex>
         </Box>
-      </Flex>
+        <Flex>
+          <Flex>
+            <Container maxW={"6xl"} mt={10}>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+                <HStack align={"top"}>
+                  <Box color={"green.400"} px={2}></Box>
+                  <VStack align={"start"}>
+                    <Text fontWeight={600} maxWidth={350}>
+                      {github}
+                    </Text>
+                  </VStack>
+                </HStack>
+              </SimpleGrid>
+            </Container>
+          </Flex>
+
+          <Flex>
+            <Container maxW={"6xl"} mt={10} >
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+                <HStack align={"top"}>
+                  <Box color={"green.400"} px={2}></Box>
+                  <VStack align={"start"}>
+                    <Text fontWeight={600}>Описание</Text>
+                    <Text color={"gray.600"} maxWidth={350}>
+                      {description}
+                    </Text>
+                  </VStack>
+                </HStack>
+              </SimpleGrid>
+            </Container>
+          </Flex>
+        </Flex>
+      </Box>
     </Stack>
   );
 }
