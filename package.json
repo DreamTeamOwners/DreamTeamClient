@@ -21,7 +21,7 @@
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "dynamic": "^4.2.2",
-    "framer-motion": "^10.0.1",
+    "framer-motion": "^10.3.2",
     "i18next": "^22.4.11",
     "jwt-decode": "^3.1.2",
     "ky": "^0.33.2",

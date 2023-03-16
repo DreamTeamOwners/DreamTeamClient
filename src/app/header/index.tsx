@@ -56,7 +56,7 @@ export default function Header() {
             color={useColorModeValue('gray.800', 'white')}
           >
             {' '}
-            <NavLink to="/">Logo</NavLink>
+            <NavLink to="/">DreamTeam</NavLink>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -101,7 +101,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack marginLeft={80} direction={'row'} spacing={14}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -246,17 +246,17 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Team',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
+        label: 'Create your Dream Team',
+        subLabel: 'Build the landing page of your team',
+        href: '/comanda',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Resume & Profile',
+        subLabel: 'Fill your own resume',
+        href: '/resume',
       },
     ],
   },
@@ -276,11 +276,11 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: 'Learn Design',
+    label: 'Company',
     href: '#',
   },
   {
-    label: 'Hire Designers',
+    label: 'Vacancy',
     href: '#',
   },
 ];
