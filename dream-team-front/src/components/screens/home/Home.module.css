@@ -1,0 +1,39 @@
+.home{   
+    font-family: Roboto;
+}
+
+
+
+.s2 {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    text-align: center;
+    border-bottom: 1px lightgray solid;
+}
+
+.slogan2{
+    
+    grid-column-start: 2;
+    font-weight: 400;
+    font-size: 32px;
+    
+}
+
+.s3{
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    border-bottom: 1px lightgray solid;
+    margin-top: 100px;
+    padding: 100px;
+}
+
+.s4{
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    padding: 100px;
+}
+
+.text{
+    padding: 20px;
+}

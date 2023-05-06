@@ -1,0 +1,23 @@
+
+.header{
+    padding:25px;
+    background-color: #011528;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    text-align: center;
+    font-size: 16px;
+    font-family: Roboto;
+}
+
+.link{
+    margin-top: 20.5px;
+    text-decoration: none;
+    color: white;
+}
+
+.auth{
+    padding-top: 20.5px;
+}
+.auth a{
+    margin: 20px;
+}
