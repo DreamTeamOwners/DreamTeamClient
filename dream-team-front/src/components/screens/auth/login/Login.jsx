@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Box, FormControl, FormErrorMessage, FormLabel, Input, Button, Image, HStack } from '@chakra-ui/react';
+import { Switch, Text, Box, FormControl, FormErrorMessage, FormLabel, Input, Button, Image, HStack, Grid, GridItem, Center } from '@chakra-ui/react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 // Валидационная схема с использованием Yup
 const validationSchema = Yup.object().shape({
@@ -24,20 +25,23 @@ const LoginForm = () => {
   };
 
     return (
-        <Box maxW="md" mx="auto" mt={8} p={4} display="flex" alignItems="center">
-            <Box flex={1} mr={4}>
-                <Image src="/login_icon.svg" alt="Image" w="200px" h="200px" objectFit="cover" />
-            </Box>
-            <Box flex={1}>
+        // <Box maxW="md" mx="auto" mt={8} p={4} display="flex" alignItems="center">
+        <Grid templateColumns='1fr 1fr' gap={6}>
+            <GridItem flex={1} mr={4}>
+                <Image src="/login_icon.svg" alt="Image" objectFit="cover" />
+            </GridItem>
+            <GridItem flex={1}>
+                <Text fontSize={24} mb={3}>Log in</Text>
                 <HStack spacing={4} mb={4}>
+                    
                     <Button colorScheme="blue" leftIcon={<FaFacebook />}>
                         Facebook
                     </Button>
                     <Button colorScheme="red" leftIcon={<FaGoogle />}>
                         Google
                     </Button>
-                    <Button colorScheme="teal" leftIcon={<FaTwitter />}>
-                        Twitter
+                    <Button colorScheme="teal" leftIcon={<FaGithub />}>
+                        GitHub
                     </Button>
                 </HStack>
                 <Formik
@@ -66,6 +70,13 @@ const LoginForm = () => {
                                     </FormControl>
                                 )}
                             </Field>
+                            <Box display={'flex'} justifyContent={'flex-end'} color={'blue'}><Link to='/forgot'>Forgot password?</Link></Box>
+                            <Box display={"flex"} alignItems={"center"} mt={4}>
+                            <FormLabel htmlFor='remember' mb='0'>
+                                Remember me
+                            </FormLabel>
+                            <Switch id='remember' />
+                            </Box>
 
                             <Button mt={4} colorScheme="teal" isLoading={isSubmitting} type="submit">
                                 Войти
@@ -73,8 +84,9 @@ const LoginForm = () => {
                         </Form>
                     )}
                 </Formik>
-            </Box>
-        </Box>
+            </GridItem>
+        </Grid>
+        // </Box>
     );
 };
 

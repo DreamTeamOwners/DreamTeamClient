@@ -5,6 +5,7 @@ import "./App.css"
 import Footer from "./components/footer/Footer";
 import Auth from "./components/screens/auth/Auth";
 import {ChakraProvider} from "@chakra-ui/react"
+import ResumeBuilder from "./components/resume/Resume";
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/*" element={<Auth />} />
+            <Route path="/resume" element={<ResumeBuilder />} />
           </Routes>
           <Footer />
         </div>

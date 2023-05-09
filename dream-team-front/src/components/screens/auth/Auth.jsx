@@ -1,13 +1,14 @@
 import styles from "./Auth.module.css"
 import {Routes, Route} from 'react-router-dom'
-import Login from "./login/Login"
+import LoginForm from "./login/Login"
+import RegistrationForm from "./reg/Registration"
 
 const Auth = () => {
     return (
         <div className={styles.auth}>
             <Routes>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/reg" element={<Login/>}/>
+                <Route path="/login" element={<LoginForm/>}/>
+                <Route path="/signup" element={<RegistrationForm/>}/>
             </Routes>
         </div>
     )
