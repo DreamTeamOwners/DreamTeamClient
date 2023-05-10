@@ -5,7 +5,7 @@ import "./App.css"
 import Footer from "./components/footer/Footer";
 import Auth from "./components/screens/auth/Auth";
 import {ChakraProvider} from "@chakra-ui/react"
-import ResumeBuilder from "./components/resume/Resume";
+import ResumeBuilder from "./components/resume/ResumeBuilder";
 
 
 

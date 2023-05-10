@@ -1,10 +1,9 @@
 
 import React from 'react';
-import { Checkbox, Switch, Text, Box, FormControl, FormErrorMessage, FormLabel, Input, Button, Image, HStack, Grid, GridItem, Center } from '@chakra-ui/react';
+import { InputGroup, InputRightElement, Checkbox,Text, Box, FormControl, FormErrorMessage, FormLabel, Input, Button, Image, HStack, Grid, GridItem } from '@chakra-ui/react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 
 // Валидационная схема с использованием Yup
 const validationSchema = Yup.object().shape({
@@ -18,6 +17,8 @@ const initialValues = {
 };
 
 const RegistrationForm = () => {
+    const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
   const handleSubmit = (values, { setSubmitting }) => {
     // Выполнение действий при отправке формы
     console.log(values);
@@ -85,7 +86,14 @@ const RegistrationForm = () => {
                                 {({ field, form }) => (
                                     <FormControl isInvalid={form.errors.password && form.touched.password}>
                                         <FormLabel htmlFor="password">Пароль</FormLabel>
-                                        <Input {...field} type="password" id="password" placeholder="Введите ваш пароль" />
+                                        <InputGroup display={"flex"}>
+                                            <Input {...field} type={show ? 'text' : 'password'} id="password" placeholder="Введите ваш пароль" />
+                                            <InputRightElement width='4.5rem'>
+                                                <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                                    {show ? 'Hide' : 'Show'}
+                                                </Button>
+                                            </InputRightElement>
+                                        </InputGroup>
                                         <ErrorMessage name="password" component={FormErrorMessage} />
                                     </FormControl>
                                 )}
