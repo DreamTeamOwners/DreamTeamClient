@@ -1,19 +1,34 @@
 import { NavLink } from "react-router-dom"
 import { Button, Box, Grid, GridItem } from "@chakra-ui/react"
+import { actions, loginAsync } from "../../store/auth/auth.slice";
+import { useSelector, useDispatch } from "react-redux";
+import SignButtons from "./SignButtons";
+import UserButton from "./UserButton";
 
 
 
 
 const Header = () => {
+
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
+
+  const handleLogout = () => {
+    dispatch(actions.logout());
+  };
+
     const links = [
         { title: 'О нас', to: '/about' },
         { title: 'Компании', to: '/' },
         { title: 'Вакансии', to: '/' },
         { title: 'Присоединиться к команде', to: '/' },
         { title: 'Создать команду', to: '/' }]
+    let count = 0
     const components = links.map((link) => {
         return (
-            <Button as={NavLink} fontSize={'sm'} fontWeight={400} color="#011528" variant={'ghost'} to={link.to}>
+            <Button key={++count} as={NavLink} fontSize={'sm'} fontWeight={400} color="#011528" variant={'ghost'} to={link.to}>
                 {link.title}
             </Button>
         )
@@ -48,39 +63,8 @@ const Header = () => {
                 </Box>
             </GridItem>
             <GridItem mt={3} p={4} >
-                <Box display='flex' justifyContent='center'>
-                    <Button
-                        as={NavLink}
-                        mx={4}
-                        fontSize={'sm'}
-                        fontWeight={400}
-                        color="white"
-                        variant={'ghost'}
-                        href={'#'}
-                        _hover={{ bg: 'SteelBlue' }}
-                        _active={{ bg: '#3f739e' }}
-                        to="/login"
-                    >
-                        Sign in
-                    </Button>
-                    <Button
-                        as={NavLink}
-                        mx={4}
-                        fontSize={'sm'}
-                        fontWeight={400}
-                        color="white"
-                        variant={'outline'}
-                        href={'#'}
-                        _hover={{ bg: 'SteelBlue' }}
-                        _active={{
-                            bg: '#3f739e',
-                            transform: 'scale(0.98)',
-                        }}
-                        to="/signup"
-                    >
-                        Sign Up
-                    </Button>
-                </Box>
+                {/* <button onClick={handleLogin}>Login</button> */}
+                {isAuth ? <UserButton user={user} logout={handleLogout}/> : <SignButtons/>}                
             </GridItem>
         </Grid>
     )

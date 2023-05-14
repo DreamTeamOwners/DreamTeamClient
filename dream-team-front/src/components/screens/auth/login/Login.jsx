@@ -6,31 +6,56 @@ import * as Yup from 'yup';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+import { loginAsync, logoutAsync } from '../../../../store/auth/auth.slice';
+import { useDispatch, useSelector } from 'react-redux';
+
 // Валидационная схема с использованием Yup
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Некорректный адрес электронной почты').required('Поле "Email" обязательно для заполнения'),
+  username: Yup.string().required('Поле "username" обязательно для заполнения'),
   password: Yup.string().required('Поле "Пароль" обязательно для заполнения'),
 });
 
 
 
 const initialValues = {
-  email: '',
+  username: '',
   password: '',
 };
 
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
+    const isAuth = useSelector((state) => state.auth.isAuth);
+
+    const handleLogin = async (username, password) => {
+        const credentials = { username: username, password: password };
+        try {            
+          await dispatch(loginAsync(credentials));
+        } catch (error) {
+          // Обработка ошибки входа
+        }
+      };
+    
+      const handleLogout = async () => {
+        try {
+          await dispatch(logoutAsync());
+        } catch (error) {
+          // Обработка ошибки выхода
+        }
+      };
+
+
     const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
   const handleSubmit = (values, { setSubmitting }) => {
-    // Выполнение действий при отправке формы
-    console.log(values);
+    console.log(values)
+    handleLogin(values.username, values.username)
     setSubmitting(false);
   };
 
     return (
         // <Box maxW="md" mx="auto" mt={8} p={4} display="flex" alignItems="center">
+        <Box>{!isAuth &&
         <Grid templateColumns='1fr 1fr' gap={6}>
             <GridItem flex={1} mr={4}>
                 <Image src="/login_icon.svg" alt="Image" objectFit="cover" />
@@ -56,12 +81,12 @@ const LoginForm = () => {
                 >
                     {({ isSubmitting }) => (
                         <Form>
-                            <Field name="email">
+                            <Field name="username">
                                 {({ field, form }) => (
-                                    <FormControl isInvalid={form.errors.email && form.touched.email}>
-                                        <FormLabel htmlFor="email">Email</FormLabel>
-                                        <Input {...field} id="email" placeholder="Введите ваш email" />
-                                        <ErrorMessage name="email" component={FormErrorMessage} />
+                                    <FormControl isInvalid={form.errors.username && form.touched.username}>
+                                        <FormLabel htmlFor="username">Username</FormLabel>
+                                        <Input {...field} id="username" placeholder="Введите ваш username" />
+                                        <ErrorMessage name="username" component={FormErrorMessage} />
                                     </FormControl>
                                 )}
                             </Field>
@@ -98,7 +123,7 @@ const LoginForm = () => {
                 </Formik>
             </GridItem>
         </Grid>
-        // </Box>
+}</Box>
     );
 };
 

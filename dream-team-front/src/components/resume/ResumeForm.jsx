@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
 import {
     FormControl,
     FormLabel,
@@ -9,16 +11,21 @@ import {
     Textarea,
     Grid,
 } from '@chakra-ui/react';
+import { actions } from '../../store/resume/resume.slice';
 
 
 
 const ResumeForm = ({formData, handleInputChange, initialValues}) => {
     
-
+    const dispatch = useDispatch()
+    const handleSubmit = (event) => {
+        //event.preventDefault();
+        dispatch(actions.update(formData));
+      };
     return (
         <Grid  gap={4}>
             <Box height={600} overflowY={'scroll'} p={4}>
-                <Formik initialValues={initialValues} onSubmit={() => { }}>
+                <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     <Form>
                         <FormControl>
                             <FormLabel htmlFor="first_name">First Name</FormLabel>
@@ -184,7 +191,7 @@ const ResumeForm = ({formData, handleInputChange, initialValues}) => {
 
                         <Box mt={4}>
                             <Button type="submit" disabled>
-                                Submit
+                                Save
                             </Button>
                         </Box>
                     </Form>
