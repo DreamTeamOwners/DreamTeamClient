@@ -1,0 +1,36 @@
+.s1{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: #011528;
+    color:whitesmoke;
+    text-align: center;    
+}
+.slogan{
+    grid-column-start: 2;
+    font-size:32px;
+    margin-top: 245px;
+}
+.btn{
+    margin-top: 20px;
+    grid-column-start: 2;
+    align-items: center;
+    margin-bottom: 175px;
+}
+.create_btn{
+    
+    border-color: whitesmoke;
+    background-color: #011528;
+    color: whitesmoke;
+    border-radius: 20px;
+    height: 60px;
+    width: 260px;
+    
+    
+}
+
+
+.s1 p{
+    grid-column-start: 2;
+    text-decoration: none;
+    color:whitesmoke
+}
