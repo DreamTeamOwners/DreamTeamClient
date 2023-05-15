@@ -15,7 +15,7 @@ const SignButtons = () => {
                 href={'#'}
                 _hover={{ bg: 'SteelBlue' }}
                 _active={{ bg: '#3f739e' }}
-                to="/login"
+                to="auth/login"
             >
                 Sign in
             </Button>
@@ -32,7 +32,7 @@ const SignButtons = () => {
                     bg: '#3f739e',
                     transform: 'scale(0.98)',
                 }}
-                to="/signup"
+                to="auth/signup"
             >
                 Sign Up
             </Button>
