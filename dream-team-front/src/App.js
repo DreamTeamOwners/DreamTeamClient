@@ -9,7 +9,8 @@ import ResumeBuilder from "./components/resume/ResumeBuilder";
 import AboutUs from "./components/screens/about/AboutUs";
 import Profile from "./components/screens/profile/Profile";
 import Workspace from "./components/screens/workspace/Workspace";
-import TeamCreate from "./components/screens/team/create/TeamCreate";
+import Team from "./components/screens/team/Team";
+import CompanyList from "./components/screens/companies/CompanyList";
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
             <Route path="/*" element={<Workspace/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/resume" element={<ResumeBuilder />} />
-            <Route path="/create" element={<TeamCreate />} />
+            <Route path="/team/*" element={<Team/>} />
+            <Route path="/companies" element={<CompanyList />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
           <Footer />

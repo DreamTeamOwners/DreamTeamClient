@@ -14,28 +14,28 @@ import {AiOutlinePlus} from 'react-icons/ai'
 const TeamCreate = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
-        <Box display={'grid'} gridTemplateColumns={'2fr 1fr'} py={12} px={16}>
+        <Box display={'grid'} gridTemplateColumns={'3fr 2fr'} py={12} px={16}>
             <Box py={6} px={12}>
                 <Heading>Dream Team</Heading>
-                <Text>Владелец</Text>
+                <Text pt={6}>Владелец</Text>
                 <Input></Input>
 
-                <Text>Опыт</Text>
-                <Input></Input>
+                <Text pt={6}>Опыт</Text>
+                <Input placeholder='Требуемый опыт участников'></Input>
 
-                <Text>Название команды</Text>
-                <Input></Input>
+                <Text pt={6}>Название команды</Text>
+                <Input placeholder='Название команды'></Input>
 
-                <Text>Описание</Text>
-                <Input></Input>
+                <Text pt={6}>Описание</Text>
+                <Textarea placeholder='Цель вашей команды'></Textarea>
 
-                <Text>Ссылки</Text>
-                <Input></Input>
+                <Text pt={6}>Ссылки</Text>
+                <Input placeholder='www.site.com/example'></Input>
             </Box>
             <Box p={6}>
-                <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} gap={6} my={6}>
+                <Box display={'grid'} gridTemplateColumns={'16fr 19fr'} gap={6} my={6}>
                     <Menu>
-                        <MenuButton as={Button} display={'flex'} rightIcon={<BiChevronDown />}>
+                        <MenuButton as={Button} display={'flex'} rightIcon={<BiChevronDown />} borderRadius={20} p={2}>
                             Список команды
                         </MenuButton>
                         <MenuList mt={4}>
@@ -68,16 +68,16 @@ const TeamCreate = () => {
                                 </Box>
                             </Box>
                             <Box display={'flex'} justifyContent={'center'}>
-                            <Button>Подробнее</Button>
+                            <Button borderRadius={10} bg='black' color={'white'}>Подробнее</Button>
                             </Box>
                         </MenuList>
                     </Menu>
                     <>
-                        <Button onClick={onOpen} leftIcon={<AiOutlinePlus />}>Добавить участников</Button>
+                        <Button onClick={onOpen} leftIcon={<AiOutlinePlus />}  borderRadius={20} p={2}>Добавить участников</Button>
 
-                        <Modal isOpen={isOpen} onClose={onClose}>
+                        <Modal isOpen={isOpen} onClose={onClose} isCentered={'true'} size={'lg'}>
                             <ModalOverlay />
-                            <ModalContent>
+                            <ModalContent m={25}>
                                 <ModalHeader>Добавить пользователей</ModalHeader>
                                 <ModalCloseButton />
                                 <ModalBody>
@@ -86,10 +86,10 @@ const TeamCreate = () => {
                                 </ModalBody>
 
                                 <ModalFooter>
-                                    <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                    <Button  borderRadius={20} bg={'#011528'} color={'white'}  mr={3} onClick={onClose}>
                                         Добавить
                                     </Button>
-                                    <Button variant='ghost'>Копировать ссылку с приглашением</Button>
+                                    <Button  borderRadius={20} variant='outline' fontSize={14}>Копировать ссылку с приглашением</Button>
                                 </ModalFooter>
                             </ModalContent>
                         </Modal>

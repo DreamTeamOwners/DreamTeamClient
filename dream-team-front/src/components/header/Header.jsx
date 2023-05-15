@@ -21,10 +21,10 @@ const Header = () => {
 
     const links = [
         { title: 'О нас', to: '/about' },
-        { title: 'Компании', to: '/' },
-        { title: 'Вакансии', to: '/' },
-        { title: 'Присоединиться к команде', to: '/' },
-        { title: 'Создать команду', to: '/create' }]
+        { title: 'Компании', to: '/companies' },
+        { title: 'Вакансии', to: '/vacancies' },
+        { title: 'Присоединиться к команде', to: '/team/join' },
+        { title: 'Создать команду', to: '/team/create' }]
     let count = 0
     const components = links.map((link) => {
         return (
