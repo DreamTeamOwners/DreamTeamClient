@@ -7,14 +7,14 @@ const AboutUs = () => {
                 <Heading as="h2" size="xl" mb={4}>
                     About DreamTeam
                 </Heading>
-                {/* <Box display={'grid'} mx={4} gridTemplateColumns={'1fr 3fr'}>
+                <Box display={'grid'} mx={4} gridTemplateColumns={'1fr 3fr'}>
                     <Box >
                         <Box display={'flex'} justifyContent={'center'}>
                             <Img src="/ceo.jpg" alt='Nuradil' borderRadius={10} />
                         </Box>
                         <Box display={'flex'} justifyContent={'center'}><Text>Ur CEO</Text></Box>
-                    </Box> */}
-                    <Box p={4} mx={4} my={12}>
+                    </Box>
+                    <Box p={4} mx={4} >
                         <Text fontSize="lg">
                             DreamTeam is a revolutionary startup that connects businesses and
                             software development teams. We understand the challenges faced by
@@ -36,7 +36,7 @@ const AboutUs = () => {
                             businesses and programmers. Let's build dreams together!
                         </Text>
                     </Box>
-                {/* </Box> */}
+                </Box>
             </Box>
         </Box>
     );
