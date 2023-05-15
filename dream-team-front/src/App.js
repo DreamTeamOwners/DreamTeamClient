@@ -11,6 +11,8 @@ import Profile from "./components/screens/profile/Profile";
 import Workspace from "./components/screens/workspace/Workspace";
 import Team from "./components/screens/team/Team";
 import CompanyList from "./components/screens/companies/CompanyList";
+import ChatSupport from "./components/supportChat/ChatSupport";
+import VacancyList from "./components/screens/vacancies/VacancyList";
 
 
 
@@ -28,8 +30,10 @@ const App = () => {
             <Route path="/resume" element={<ResumeBuilder />} />
             <Route path="/team/*" element={<Team/>} />
             <Route path="/companies" element={<CompanyList />} />
+            <Route path="/vacancies" element={<VacancyList />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
+          {/* <ChatSupport/> */}
           <Footer />
         </div>
       </BrowserRouter>
