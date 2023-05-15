@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import TeamCreate from './create/TeamCreate';
 import TeamList from './TeamList';
 import Side from '../../side/Side';
+import TeamJoin from './TeamJoin';
 
 const Team = () => {
     return(
@@ -15,7 +16,7 @@ const Team = () => {
                 <Routes>
                     <Route path='create' element={<TeamCreate/>}/>
                     <Route path='list' element={<TeamList/>}/>
-                    <Route path='join' element={<TeamList/>}/>
+                    <Route path='join' element={<TeamJoin/>}/>
                 </Routes>
             </Box>
             
