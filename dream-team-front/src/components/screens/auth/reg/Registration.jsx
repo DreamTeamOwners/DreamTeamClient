@@ -1,15 +1,16 @@
 
 import React from 'react';
 import { InputGroup, InputRightElement, Checkbox,Text, Box, FormControl, FormErrorMessage, FormLabel, Input, Button, Image, HStack, Grid, GridItem } from '@chakra-ui/react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+
 import { generatePassword } from '../../../../utils/generatePassword';
 import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-
+import { actions } from '../../../../store/auth/auth.slice';
 import { registrationAsync,  } from '../../../../store/auth/auth.slice';
 import { useDispatch, useSelector } from 'react-redux';
+import SocialLogin from '../SocialLogin';
 
 
 // Валидационная схема с использованием Yup
@@ -40,7 +41,6 @@ const RegistrationForm = () => {
 
     const [isRobot, setIsRobot] = useState(false);
 
-    const [generatedPassword, setGeneratedPassword] = useState('');
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
     const handleSubmit = (values, { setSubmitting }) => {
@@ -48,28 +48,18 @@ const RegistrationForm = () => {
         console.log(values);
         setSubmitting(false);
     };
+    const handleLogout = () => {
+        dispatch(actions.logout());
+      };
+
 
     return (
         // <Box maxW="md" mx="auto" mt={8} p={4} display="flex" alignItems="center">
-        <Box>{!isAuth &&
-            <Grid templateColumns='1fr 1fr' gap={6}>
-                <GridItem flex={1} mr={4}>
-                    <Image src="/login_icon.svg" alt="Image" objectFit="cover" />
-                </GridItem>
-                <GridItem flex={1}>
+        <Box>
+            
+                {!isAuth ? <GridItem flex={1}>
                     <Text fontSize={24} mb={3}>Sign up</Text>
-                    <HStack spacing={4} mb={4}>
-
-                        <Button colorScheme="blue" leftIcon={<FaFacebook />}>
-                            Facebook
-                        </Button>
-                        <Button colorScheme="red" leftIcon={<FaGoogle />}>
-                            Google
-                        </Button>
-                        <Button colorScheme="teal" leftIcon={<FaGithub />}>
-                            GitHub
-                        </Button>
-                    </HStack>
+                    <SocialLogin/>
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
@@ -112,7 +102,12 @@ const RegistrationForm = () => {
                                         <FormControl isInvalid={form.errors.password && form.touched.password}>
                                             <FormLabel htmlFor="password">Пароль</FormLabel>
                                             <InputGroup display={"flex"}>
-                                                <Input {...field} value={generatedPassword} type={show ? 'text' : 'password'} id="password" placeholder="Введите ваш пароль" />
+                                                <Input {...field}  
+                                                    type={show ? 'text' : 'password'} 
+                                                    id="password" 
+                                                    placeholder="Введите ваш пароль"
+                                                    //onChange={e=>{setGeneratedPassword(e.target.value)}}
+                                                 />
                                                 <InputRightElement width='4.5rem'>
                                                     <Button h='1.75rem' size='sm' onClick={handleClick}>
                                                         {show ? 'Hide' : 'Show'}
@@ -124,17 +119,14 @@ const RegistrationForm = () => {
                                     )}
                                 </Field>
                                 <Box display={'flex'} justifyContent={'flex-end'} color={'blue'}>
-                                    <Button
+                                    {/* <Button
                                         variant='link'
-                                        onClick={() => {
-                                            setGeneratedPassword(generatePassword(15))
-                                        }
-                                        }
+                                        onClick={handleGenerateClick}
                                     >
                                         Сгенерировать пароль
-                                    </Button>
+                                    </Button> */}
                                 </Box>
-                                <Box display={"flex"} alignItems={"center"} >
+                                <Box display={"flex"} alignItems={"center"} mt={4} >
                                     <ReCAPTCHA
                                         sitekey='6LeiJwsmAAAAAGsTE7-NTOABQx1HcbvUNZ1_KvoU'
                                         onChange={(value) => setIsRobot(value)}
@@ -150,7 +142,12 @@ const RegistrationForm = () => {
                         )}
                     </Formik>
                 </GridItem>
-            </Grid>}
+                :
+                <GridItem>
+                    <Text fontSize={24} mb={3}>Вы уже авторизованы =)</Text>
+                    <Button variant={'outline'} onClick={handleLogout}>Выйти</Button>
+                </GridItem>
+                }
         </Box>
     );
 };

@@ -1,6 +1,7 @@
 import { Link, Heading, Box, Img, Text, Grid } from '@chakra-ui/react';
 import {GrLink, GrUserManager} from 'react-icons/gr'
 import {BsTelephone, BsGeoAlt} from 'react-icons/bs'
+import {IoIosContact} from 'react-icons/io'
 import {CiMail} from 'react-icons/ci'
 import React from 'react';
 
@@ -10,12 +11,12 @@ const ResumeView = ({ formData }) => {
     return (
 
         <Box >
-            <Grid bg='aqua' gridTemplateColumns={'1fr 3fr'} borderRadius={4}>
+            <Grid bg='#011528' gridTemplateColumns={'1fr 3fr'} borderRadius={4} color={'white'}>
                 <Img minHeight={110} src={formData.image} borderRadius={4}/>
-                <Box mx={4}>
+                <Box mx={4}  >
                     <Box>
                         <Heading size={'lg'}>{formData.first_name + ' ' + formData.last_name}</Heading>
-                        <Box display={'flex'}><Box p={1}><GrUserManager/></Box>{formData.job_position}</Box>
+                        <Box display={'flex'} ><Box p={1}><IoIosContact/></Box>{formData.job_position}</Box>
                     </Box>
                     <Box>
                         <Box display={'flex'}>

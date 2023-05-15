@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import { loginAsync, logoutAsync } from '../../../../store/auth/auth.slice';
+import { actions, loginAsync } from '../../../../store/auth/auth.slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Валидационная схема с использованием Yup
@@ -29,41 +29,31 @@ const LoginForm = () => {
 
     const handleLogin = async (username, password) => {
         const credentials = { username: username, password: password };
-        try {            
-          await dispatch(loginAsync(credentials));
-        } catch (error) {
-          // Обработка ошибки входа
-        }
-      };
-    
-      const handleLogout = async () => {
         try {
-          await dispatch(logoutAsync());
+            await dispatch(loginAsync(credentials));
         } catch (error) {
-          // Обработка ошибки выхода
+            // Обработка ошибки входа
         }
-      };
+    };
+
+    
 
 
     const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values)
-    handleLogin(values.username, values.username)
-    setSubmitting(false);
-  };
+    const handleClick = () => setShow(!show)
+    const handleSubmit = (values, { setSubmitting }) => {
+        console.log(values)
+        handleLogin(values.username, values.username)
+        setSubmitting(false);
+    };
 
     return (
         // <Box maxW="md" mx="auto" mt={8} p={4} display="flex" alignItems="center">
-        <Box>{!isAuth &&
-        <Grid templateColumns='1fr 1fr' gap={6}>
-            <GridItem flex={1} mr={4}>
-                <Image src="/login_icon.svg" alt="Image" objectFit="cover" />
-            </GridItem>
+        <Box>{!isAuth ?
             <GridItem flex={1}>
                 <Text fontSize={24} mb={3}>Log in</Text>
                 <HStack spacing={4} mb={4}>
-                    
+
                     <Button colorScheme="blue" leftIcon={<FaFacebook />}>
                         Facebook
                     </Button>
@@ -109,10 +99,10 @@ const LoginForm = () => {
                             </Field>
                             <Box display={'flex'} justifyContent={'flex-end'} color={'blue'}><Link to='/forgot'>Forgot password?</Link></Box>
                             <Box display={"flex"} alignItems={"center"} mt={4}>
-                            <FormLabel htmlFor='remember' mb='0'>
-                                Remember me
-                            </FormLabel>
-                            <Switch id='remember' />
+                                <FormLabel htmlFor='remember' mb='0'>
+                                    Remember me
+                                </FormLabel>
+                                <Switch id='remember' />
                             </Box>
 
                             <Button mt={4} colorScheme="teal" isLoading={isSubmitting} type="submit">
@@ -122,8 +112,12 @@ const LoginForm = () => {
                     )}
                 </Formik>
             </GridItem>
-        </Grid>
-}</Box>
+            :
+            <GridItem>
+                    <Text fontSize={24} mb={3}>Вы уже авторизованы =)</Text>
+                    <Button variant={'outline'} onClick={dispatch(actions.logout)}>Выйти</Button>
+                </GridItem>
+        }</Box>
     );
 };
 
