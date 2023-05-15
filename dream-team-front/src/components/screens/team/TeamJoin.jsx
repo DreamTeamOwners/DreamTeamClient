@@ -43,7 +43,7 @@ const TeamJoin = () => {
                 <UnorderedList pl={4}>
                     {team.team_members.map(req => {return(<ListItem>{req}</ListItem>)})}
                 </UnorderedList>
-                <Button borderRadius={4} bg={'black'} color={'white'} mt={4}>Подробнее</Button>
+                <Button borderRadius={4} bg={'black'} color={'white'} mt={4}>Подать заявку</Button>
             </AccordionPanel>
         </AccordionItem>
         )
@@ -51,7 +51,7 @@ const TeamJoin = () => {
     return (
         <Box>
             <Text fontSize={24} mt={16} ml={'10%'}>
-                Вакансии
+                Команды
             </Text>
             <Accordion allowToggle={'true'} mb={16} mt={4}>
                 {list}  
