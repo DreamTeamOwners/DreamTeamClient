@@ -24,7 +24,7 @@ const Header = () => {
         { title: 'Компании', to: '/' },
         { title: 'Вакансии', to: '/' },
         { title: 'Присоединиться к команде', to: '/' },
-        { title: 'Создать команду', to: '/' }]
+        { title: 'Создать команду', to: '/create' }]
     let count = 0
     const components = links.map((link) => {
         return (
