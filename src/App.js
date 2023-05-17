@@ -13,6 +13,7 @@ import Team from "./components/screens/team/Team";
 import CompanyList from "./components/screens/companies/CompanyList";
 import ChatSupport from "./components/supportChat/ChatSupport";
 import VacancyList from "./components/screens/vacancies/VacancyList";
+import CreateResume from "./components/resume/updated_resume/CreateResume";
 
 
 
@@ -24,14 +25,16 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/create" element={<CreateResume />} />
             <Route path="/auth/*" element={<Auth />} />
-            <Route path="/*" element={<Workspace/>}/>
+            {/* <Route path="/*" element={<Workspace/>}/> */}
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/resume" element={<ResumeBuilder />} />
             <Route path="/team/*" element={<Team/>} />
             <Route path="/companies" element={<CompanyList />} />
             <Route path="/vacancies" element={<VacancyList />} />
             <Route path="/about" element={<AboutUs />} />
+            
           </Routes>
           {/* <ChatSupport/> */}
           <Footer />
