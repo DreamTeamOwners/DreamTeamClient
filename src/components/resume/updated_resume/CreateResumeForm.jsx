@@ -35,7 +35,7 @@ const CreateResumeForm = () => {
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left' fontSize={24}>
+                            <Box as="span" flex='1' textAlign='left'  fontSize={20} m={3}>
                                 Хобби
                             </Box>
                             <AccordionIcon />
@@ -48,7 +48,7 @@ const CreateResumeForm = () => {
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left' fontSize={24}>
+                            <Box as="span" flex='1' textAlign='left'  fontSize={20} m={3}>
                                 Нижний колонтитул
                             </Box>
                             <AccordionIcon />

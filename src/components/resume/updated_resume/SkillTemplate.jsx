@@ -24,7 +24,7 @@ const SkillTemplate = (props) => {
         <AccordionItem>
             <h2>
                 <AccordionButton>
-                    <Box as="span" flex='1' textAlign='left' fontSize={24}>
+                    <Box as="span" flex='1' textAlign='left'  fontSize={20} m={3}>
                         {props.name}
                     </Box>
                     <AccordionIcon />
