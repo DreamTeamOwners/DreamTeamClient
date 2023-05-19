@@ -1,7 +1,8 @@
 import React from 'react';
-import FormTemplate from './FormTemplate';
+import FormTemplate from '../shared/FormTemplate';
 
-const EducationDataForm = () => {
+
+const Educations = () => {
     return (
         <FormTemplate
             name='Образование'
@@ -10,8 +11,8 @@ const EducationDataForm = () => {
             description_label='Описание'
             city_input_label='Город'
             place_input_label='Учебное заведение'                    
-        />
+        />        
     )
 }
 
-export default EducationDataForm
+export default Educations

@@ -1,18 +1,20 @@
 import React from 'react';
 import { Box, SimpleGrid, Text, Textarea} from '@chakra-ui/react';
-import PhotoUploader from './PhotoUploader';
-import InputWithLabel from './InputWithLabel';
+import InputWithLabel from './../shared/InputWithLabel';
 import CustomAccordionItem from '../shared/CustomAccordionItem';
 import CustomAccordionPanel from '../shared/CustomAccordionPanel';
 import MultipleInputs from '../shared/MultipleInputs';
+import PhotoUploader from './PhotoUploder';
 
-const PersonalDataForm = ({resume,handleChange}) => {
+const Personal = ({resume,handleChange}) => {
+    console.log('a')
+    console.log(resume.first_name)
     return (
         <CustomAccordionItem
-            name='Персональные данные'
+            name='Персональные данные' 
         >
             <CustomAccordionPanel>
-                <Box display={'grid'} gridTemplateColumns={'1fr 3fr'} gap={4}>
+                <Box display={'grid'} gridTemplateColumns={'1fr 3fr'} gap={4} gridColumnStart={'span 2'} >
                     <Box>
                         <Text>Фото</Text>
                         <PhotoUploader />
@@ -22,19 +24,22 @@ const PersonalDataForm = ({resume,handleChange}) => {
                             label='Имя'
                             value={resume.first_name}
                             handleChange={handleChange}
-                            name={'first_name'}
+                            name='first_name'
                         />
                         <InputWithLabel
                             label='Фамилия'
                             value={resume.last_name}
                             handleChange={handleChange}
-                            name={'last_name'}
+                            name='last_name'
                         />
                         <InputWithLabel label='Дата рождения' type='date' />
-                        <InputWithLabel label='Пол'/> //select кылыш керек
+                        <InputWithLabel 
+                            label='Пол'
+                            //select кылыш керек
+                        /> 
                     </Box>
                 </Box>
-                <SimpleGrid gridRow={'true'} rowGap={4}>
+                <SimpleGrid gridRow={'true'} rowGap={4} gridColumnStart={'span 2'}>
                     <InputWithLabel label='Заголовок' />
 
                     <SimpleGrid columns={2} gap={4}>
@@ -42,18 +47,18 @@ const PersonalDataForm = ({resume,handleChange}) => {
                         <InputWithLabel label='Город' />
                     </SimpleGrid>
                     <MultipleInputs
-                    //inputs, label, handleChange, handleAdd
+                        //inputs, label, handleChange, handleAdd
                         inputs={resume.emails}
                         label='Email'
                     />
                     <MultipleInputs
-                    //inputs, label, handleChange, handleAdd
+                        //inputs, label, handleChange, handleAdd
                         inputs={resume.phones}
                         label='Телефон'
                     />
                     <Box>
                         <Text>О себе</Text>
-                        <Textarea 
+                        <Textarea
                             variant={'filled'}
                             value={resume.description}
                             onChange={handleChange}
@@ -65,4 +70,4 @@ const PersonalDataForm = ({resume,handleChange}) => {
     )
 }
 
-export default PersonalDataForm
+export default Personal

@@ -1,12 +1,12 @@
 import React from 'react';
 import {Box, Text, Input} from '@chakra-ui/react'
 
-const InputWithLabel = ({label, value, handleChange, inputType, name}) => {
+const InputWithLabel = ({label, value, handleChange, type, name}) => {
     return(
         <Box>
             <Text>{label}</Text>
             <Input 
-                type={inputType} 
+                type={type} 
                 name={name}
                 variant='filled'
                 value={value}

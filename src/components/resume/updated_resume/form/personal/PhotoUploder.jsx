@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const PhotoUploader = () => {
     const [file, setFile] = useState(null);
+    
   
     return (
       <div

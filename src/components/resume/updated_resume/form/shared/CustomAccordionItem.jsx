@@ -2,7 +2,7 @@ import { AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, But
 import React, { Children } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-const CustomAccordionItem = ({name, handleAdd}) => {
+const CustomAccordionItem = ({name, handleAdd, children, addButton}) => {
     return(
         <AccordionItem>
             <h2>
@@ -13,15 +13,16 @@ const CustomAccordionItem = ({name, handleAdd}) => {
                     <AccordionIcon />
                 </AccordionButton>
             </h2>
-            {Children}
-            <AccordionPanel>
-                <Button 
-                    leftIcon={<AiOutlinePlus/>}
-                    onClick={handleAdd}
-                >
-                    Добавить {name}
-                </Button>
-            </AccordionPanel>
+            {children}
+            {addButton &&
+                <AccordionPanel>
+                    <Button
+                        leftIcon={<AiOutlinePlus />}
+                        onClick={handleAdd}
+                    >
+                        Добавить {name}
+                    </Button>
+                </AccordionPanel>}
         </AccordionItem>
     )
 }

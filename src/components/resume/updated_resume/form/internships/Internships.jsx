@@ -1,12 +1,12 @@
 import React from 'react';
-import FormTemplate from './FormTemplate';
+import FormTemplate from '../shared/FormTemplate';
 
-const ExperienceDataForm = () => {
+const Internships = () => {
     return (
         <FormTemplate
-            name='Место работы'
+            name='Место стажировки'
             title_input_label='Должность'
-            add_label='место работы'
+            add_label='место стажировки'
             description_label='Описание'
             city_input_label='Город'
             place_input_label='Работодатель'                    
@@ -14,4 +14,4 @@ const ExperienceDataForm = () => {
     )
 }
 
-export default ExperienceDataForm
+export default Internships

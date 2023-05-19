@@ -1,15 +1,14 @@
 import React from 'react';
-import SkillTemplate from './form/shared/SkillTemplate';
+import SkillTemplate from '../shared/SkillTemplate';
 
-const SkillsDataForm = () => {
+const Skills = () => {
     return (
-        <SkillTemplate
+        <SkillTemplate 
             name='Навыки'
-            add_label='навыки'
             slider_label='Уровень'
             title_input_label='Навык'
         />
     )
 }
 
-export default SkillsDataForm
+export default Skills

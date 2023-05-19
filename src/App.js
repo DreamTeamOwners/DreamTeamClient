@@ -11,8 +11,8 @@ import Profile from "./components/screens/profile/Profile";
 import Team from "./components/screens/team/Team";
 import CompanyList from "./components/screens/companies/CompanyList";
 import VacancyList from "./components/screens/vacancies/VacancyList";
-import CreateResume from "./components/resume/updated_resume/CreateResume";
 import Test from './Test';
+import ResumeEdit from "./components/resume/updated_resume/ResumeEdit";
 
 
 
@@ -24,7 +24,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/create" element={<CreateResume />} />
+            <Route path="/create" element={<ResumeEdit />} />
             <Route path="/auth/*" element={<Auth />} />
             {/* <Route path="/*" element={<Workspace/>}/> */}
             <Route path="/profile" element={<Profile/>}/>

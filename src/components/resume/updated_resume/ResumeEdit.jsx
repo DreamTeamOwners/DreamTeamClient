@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import CreateResumeForm from './CreateResumeForm';
 import CreateResumeHeader from './CreateResumeHeader';
-import ResumeScheme from './ResumeScheme';
 import { Box } from '@chakra-ui/react';
 import { resumeInitial } from './resumeModel';
+import ResumeForm from './form/ResumeForm';
+import ResumeView from './view/ResumeView';
 
-const CreateResume = () => {
+const ResumeEdit = () => {
 
     const [resume, setResume] = useState(resumeInitial)
     const handleChange = (event) => {
@@ -14,7 +14,7 @@ const CreateResume = () => {
             [event.target.name]: event.target.value,
         }));
     }
-    console.log('ini'+resume.hobbies)
+
     return(
         <Box>
             <CreateResumeHeader 
@@ -22,11 +22,16 @@ const CreateResume = () => {
                 last_name={resume.last_name}
             />
             <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} gap={4} m={10}>
-                <CreateResumeForm resume={resume} handleChange={handleChange} setResume={setResume}/>
-                <ResumeScheme resume={resume}/>
+                {/* resume,handleChange,setResume */}
+                <ResumeForm
+                    resume={resume}
+                    handleChange={handleChange}
+                    setResume={setResume}
+                />
+                <ResumeView resume={resume}/>
             </Box>
         </Box>
     )    
 }
 
-export default CreateResume
+export default ResumeEdit

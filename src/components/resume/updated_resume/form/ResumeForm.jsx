@@ -1,24 +1,21 @@
-import { Box, Input, SimpleGrid, Text, Textarea, VStack } from '@chakra-ui/react';
-
-import {AiOutlineDownload} from 'react-icons/ai'
 import React from 'react';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-  } from '@chakra-ui/react'
-import PhotoUploader from './PhotoUploader';
-import InputWithLabel from './InputWithLabel';
-import PersonalDataForm from './PersonalDataForm';
-import EducationDataForm from './EducationDataForm';
-import ExperienceDataForm from './ExperienceDataForm';
-import SkillsDataForm from './SkillsDataForm';
-import LanguagesDataForm from './LanguagesDataForm';
-import HobbyInput from './HobbyInput';
+import {Accordion, Box} from '@chakra-ui/react'
+import Personal from './personal/Personal';
+import Educations from './education/Educations';
+import Experiences from './experience/Experiences';
+import Internships from './internships/Internships';
+import Courses from './courses/Courses';
+import Skills from './skills/Skills';
+import Languages from './languages/Languages';
+import Hobbies from './hobbies/Hobbies';
+import Recommendations from './recommendations/Recommendations';
+import Qualities from './qualities/Qualities';
+import Certificates from './certificates/Certificates';
+import Other from './other/Other';
+
 
 const ResumeForm = ({resume,handleChange,setResume}) => {
+    console.log(resume)
     return(
         <Box 
             overflowY={'scroll'}

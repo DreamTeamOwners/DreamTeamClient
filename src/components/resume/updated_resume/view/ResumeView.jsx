@@ -52,7 +52,7 @@ const resumeTemplates = [
       },
   ];
 
-const ResumeScheme = ({resume}) => {
+const ResumeView = ({resume}) => {
     return(
         <Box>
             <Text>
@@ -96,4 +96,4 @@ const ResumeScheme = ({resume}) => {
         </Box>
     )
 }
-export default ResumeScheme
+export default ResumeView

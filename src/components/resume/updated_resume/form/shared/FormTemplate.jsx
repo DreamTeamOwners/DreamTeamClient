@@ -9,7 +9,9 @@ import CustomAccordionPanel from './CustomAccordionPanel';
 
 const FormTemplate = (props) => {
     return (
-        <CustomAccordionItem>
+        <CustomAccordionItem
+            name={props.name}
+        >
             <CustomAccordionPanel>
             <Box gridColumnStart={'span 2'}>
                         <InputWithLabel label={props.title_input_label} />
@@ -23,10 +25,6 @@ const FormTemplate = (props) => {
                     <Box gridColumnStart={'span 2'}>
                         <Text>{props.description_label}</Text>
                         <Textarea variant={'filled'}></Textarea>
-                    </Box>
-                    <Box gridColumnStart={'span 2'} display={'flex'} justifyContent={'flex-end'}>
-                        <IconButton icon={<AiFillDelete/>}/>
-                        <Button ml={3} colorScheme='blue' leftIcon={<AiOutlineCheck/>}>Готово</Button>
                     </Box>
             </CustomAccordionPanel>
         </CustomAccordionItem>
