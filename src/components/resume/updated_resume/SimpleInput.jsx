@@ -1,6 +1,6 @@
 import { Box, Text, Button, IconButton } from '@chakra-ui/react';
 import React from 'react';
-import InputWithLabel from '../../shared/Input/InputWithLabel';
+import InputWithLabel from './InputWithLabel';
 
 import {AiFillDelete, AiOutlinePlus, AiOutlineCheck} from 'react-icons/ai'
 import {
@@ -19,7 +19,7 @@ import {
   } from '@chakra-ui/react'
 import AddButton from './AddButton';
 
-const SkillTemplate = (props) => {
+const SimpleInput = (props) => {
     return (
         <AccordionItem>
             <h2>
@@ -33,15 +33,8 @@ const SkillTemplate = (props) => {
             <AccordionPanel pb={4} border={'1px lightgray solid'} borderRadius={10} m={4}>
                 <Box>
                     <InputWithLabel label={props.title_input_label} />
-                    <Text pt={3}>{props.slider_label}</Text>
-                    <Slider aria-label='slider-ex-1' defaultValue={50}>
-                        <SliderTrack>
-                            <SliderFilledTrack />
-                        </SliderTrack>
-                        <SliderThumb />
-                    </Slider>
                 </Box>
-                <Box display={'flex'} justifyContent={'flex-end'}>
+                <Box display={'flex'} justifyContent={'flex-end'} mt={4}>
                     <IconButton icon={<AiFillDelete />} />
                     <Button ml={3} colorScheme='blue' leftIcon={<AiOutlineCheck />}>Готово</Button>
                 </Box>
@@ -51,4 +44,4 @@ const SkillTemplate = (props) => {
     )
 }
 
-export default SkillTemplate
+export default SimpleInput

@@ -1,6 +1,7 @@
-export const resumeModel = {
+export const resumeInitial = {
     first_name:'',
     last_name:'',
+    avatar:'',
     emails:[''],
     phones:[''],
     birth_date:'',
@@ -25,7 +26,7 @@ export const resumeModel = {
             position:'',
             employer:'',
             country:'',
-            //intership, full, minor, major
+            //internship, full, minor, major
             type:'',
             city:'',
             description:'',

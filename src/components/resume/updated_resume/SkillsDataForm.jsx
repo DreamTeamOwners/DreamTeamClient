@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillTemplate from './SkillTemplate';
+import SkillTemplate from './form/shared/SkillTemplate';
 
 const SkillsDataForm = () => {
     return (

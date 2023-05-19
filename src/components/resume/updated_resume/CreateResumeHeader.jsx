@@ -5,7 +5,7 @@ import {BiArrowBack} from 'react-icons/bi'
 import {AiOutlineDownload} from 'react-icons/ai'
 import LanguageMenu from './LanguageMenu';
 
-const CreateResumeHeader = ({resume}) => {
+const CreateResumeHeader = ({first_name, last_name}) => {
     return(
         <Box
             bg={'#011528'}
@@ -22,7 +22,10 @@ const CreateResumeHeader = ({resume}) => {
                 Назад
             </Button>
 
-            <Text fontSize={24}>Резюме {resume.first_name ? resume.first_name : 'Без имени'}</Text>
+            <Text fontSize={24}>
+                Резюме
+                {first_name||last_name ? ' '+first_name+' '+last_name : ' без имени'}
+            </Text>
             <Box>
                 <LanguageMenu />
 

@@ -10,14 +10,15 @@ import {
     AccordionIcon,
   } from '@chakra-ui/react'
 import PhotoUploader from './PhotoUploader';
-import InputWithLabel from '../../shared/Input/InputWithLabel';
+import InputWithLabel from './InputWithLabel';
 import PersonalDataForm from './PersonalDataForm';
 import EducationDataForm from './EducationDataForm';
 import ExperienceDataForm from './ExperienceDataForm';
 import SkillsDataForm from './SkillsDataForm';
 import LanguagesDataForm from './LanguagesDataForm';
+import HobbyInput from './HobbyInput';
 
-const CreateResumeForm = () => {
+const CreateResumeForm = ({resume,handleChange,setResume}) => {
     return(
         <Box 
             overflowY={'scroll'}
@@ -27,24 +28,12 @@ const CreateResumeForm = () => {
                 allowToggle={'true'}
                 allowMultiple={'true'}
             >
-                <PersonalDataForm/>
+                <PersonalDataForm resume={resume} handleChange={handleChange}/>
                 <EducationDataForm/>
                 <ExperienceDataForm/>
                 <SkillsDataForm/>
                 <LanguagesDataForm/>
-                <AccordionItem>
-                    <h2>
-                        <AccordionButton>
-                            <Box as="span" flex='1' textAlign='left'  fontSize={20} m={3}>
-                                Хобби
-                            </Box>
-                            <AccordionIcon />
-                        </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    </AccordionPanel>
-                </AccordionItem>
+                <HobbyInput resume={resume} setResume={setResume}/>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>

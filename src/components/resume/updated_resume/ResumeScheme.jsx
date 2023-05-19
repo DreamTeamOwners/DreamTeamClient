@@ -52,11 +52,11 @@ const resumeTemplates = [
       },
   ];
 
-const ResumeScheme = () => {
+const ResumeScheme = ({resume}) => {
     return(
         <Box>
             <Text>
-                Hello2
+                {resume.first_name}
             </Text>
             <Box bg={'lightblue'} w={500} h={500}>a</Box>
             <Box border={'1px lightgray solid'} borderRadius={5} shadow={'3px'}>

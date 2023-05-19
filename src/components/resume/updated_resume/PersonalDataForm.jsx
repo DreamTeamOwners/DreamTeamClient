@@ -7,10 +7,10 @@ import {
     AccordionIcon,
   } from '@chakra-ui/react'
 import PhotoUploader from './PhotoUploader';
-import InputWithLabel from '../../shared/Input/InputWithLabel';
+import InputWithLabel from './InputWithLabel';
 import {AiOutlinePlus} from 'react-icons/ai'
 
-const PersonalDataForm = () => {
+const PersonalDataForm = ({resume,handleChange}) => {
     return (
         <AccordionItem>
                     <h2>
@@ -28,12 +28,39 @@ const PersonalDataForm = () => {
                                 <PhotoUploader />
                             </Box>
                             <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} gap={4}>
-                                <InputWithLabel label='Имя' />
-                                <InputWithLabel label='Фамилия' />
-                                <Box gridColumnStart={'span 2'} display={'grid'} gridTemplateColumns={'8fr 1fr'}>
-                                    <InputWithLabel label='Адрес эл. почты'/>
-                                    <IconButton icon={<AiOutlinePlus/>} ml={2} mt={6}/>
-                                </Box>
+                                <InputWithLabel 
+                                    label='Имя' 
+                                    inputValue={resume.first_name} 
+                                    handleChange={handleChange}
+                                    inputName={'first_name'}
+                                />
+                                <InputWithLabel 
+                                    label='Фамилия' 
+                                    inputValue={resume.last_name} 
+                                    handleChange={handleChange}
+                                    inputName={'last_name'}
+                                />
+                                {resume.emails ?
+                                    resume.emails.map((email)=>{
+                                        return(
+                                            <Box gridColumnStart={'span 2'} display={'grid'} gridTemplateColumns={'8fr 1fr'}>
+                                                <InputWithLabel 
+                                                    label='Адрес эл. почты'
+                                                    inputValue={email} 
+                                                    //handleChange={handleArrayChange}
+                                                    inputName={'emails'}
+                                                />
+                                                <IconButton icon={<AiOutlinePlus/>} ml={2} mt={6}/>
+                                            </Box>
+                                        )
+                                    })
+                                    :
+                                    <Box gridColumnStart={'span 2'} display={'grid'} gridTemplateColumns={'8fr 1fr'}>
+                                        <InputWithLabel label='Адрес эл. почты' />
+                                        <IconButton icon={<AiOutlinePlus />} ml={2} mt={6} />
+                                    </Box>                            
+                                }
+                                
                                 <Box gridColumnStart={'span 2'} display={'grid'} gridTemplateColumns={'8fr 1fr'}>
                                     <InputWithLabel label='Номер телефона'  inputStyles={{type:'tel'}}/>
                                     <IconButton icon={<AiOutlinePlus/>}  ml={2} mt={6}/>                             
