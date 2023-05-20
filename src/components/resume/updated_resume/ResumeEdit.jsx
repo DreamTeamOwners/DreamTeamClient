@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import CreateResumeHeader from './CreateResumeHeader';
 import { Box } from '@chakra-ui/react';
 import { resumeInitial } from './resumeModel';
 import ResumeForm from './form/ResumeForm';
 import ResumeView from './view/ResumeView';
+import ResumeEditHeader from './ResumeEditHeader';
 
 const ResumeEdit = () => {
 
     const [resume, setResume] = useState(resumeInitial)
     const handleChange = (event) => {
+        console.log(event)
         setResume((prevData) => ({
             ...prevData,
             [event.target.name]: event.target.value,
@@ -17,7 +18,7 @@ const ResumeEdit = () => {
 
     return(
         <Box>
-            <CreateResumeHeader 
+            <ResumeEditHeader
                 first_name={resume.first_name}
                 last_name={resume.last_name}
             />

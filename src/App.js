@@ -5,7 +5,7 @@ import "./App.css"
 import Footer from "./components/footer/Footer";
 import Auth from "./components/screens/auth/Auth";
 import {ChakraProvider} from "@chakra-ui/react"
-import ResumeBuilder from "./components/resume/ResumeBuilder";
+// import ResumeBuilder from "./components/resume/ResumeBuilder";
 import AboutUs from "./components/screens/about/AboutUs";
 import Profile from "./components/screens/profile/Profile";
 import Team from "./components/screens/team/Team";
@@ -28,7 +28,7 @@ const App = () => {
             <Route path="/auth/*" element={<Auth />} />
             {/* <Route path="/*" element={<Workspace/>}/> */}
             <Route path="/profile" element={<Profile/>}/>
-            <Route path="/resume" element={<ResumeBuilder />} />
+            {/* <Route path="/resume" element={<ResumeBuilder />} /> */}
             <Route path="/team/*" element={<Team/>} />
             <Route path="/companies" element={<CompanyList />} />
             <Route path="/vacancies" element={<VacancyList />} />

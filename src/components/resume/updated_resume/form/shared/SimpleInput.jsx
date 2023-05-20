@@ -4,7 +4,7 @@ import CustomAccordionPanel from './CustomAccordionPanel';
 import InputWithLabel from './InputWithLabel';
 import { Box } from '@chakra-ui/react';
 
-const SimpleInput = ({label, value, handleChange, type, name}) => {
+const SimpleInput = ({label, value, handleChange, type, name, children}) => {
     return (
         <CustomAccordionItem
             name={name}
@@ -19,6 +19,7 @@ const SimpleInput = ({label, value, handleChange, type, name}) => {
                         type={type}
                         name={name}
                     />
+                    {children}
                 </Box>
             </CustomAccordionPanel>
         </CustomAccordionItem>

@@ -17,7 +17,7 @@ const Personal = ({resume,handleChange}) => {
                 <Box display={'grid'} gridTemplateColumns={'1fr 3fr'} gap={4} gridColumnStart={'span 2'} >
                     <Box>
                         <Text>Фото</Text>
-                        <PhotoUploader />
+                        <PhotoUploader handleChange={handleChange}/>
                     </Box>
                     <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} gap={4}>
                         <InputWithLabel
@@ -25,36 +25,66 @@ const Personal = ({resume,handleChange}) => {
                             value={resume.first_name}
                             handleChange={handleChange}
                             name='first_name'
+                            placeholder='Вася'
                         />
                         <InputWithLabel
                             label='Фамилия'
                             value={resume.last_name}
                             handleChange={handleChange}
                             name='last_name'
+                            placeholder='Пупкин'
                         />
-                        <InputWithLabel label='Дата рождения' type='date' />
+                        <InputWithLabel 
+                            label='Дата рождения' 
+                            type='date' 
+                            name='birth_date'
+                            value={resume.birth_date}
+                            handleChange={handleChange}
+                        />
                         <InputWithLabel 
                             label='Пол'
+                            name='sex'
+                            value={resume.sex}
+                            handleChange={handleChange}
                             //select кылыш керек
                         /> 
                     </Box>
                 </Box>
                 <SimpleGrid gridRow={'true'} rowGap={4} gridColumnStart={'span 2'}>
-                    <InputWithLabel label='Заголовок' />
+                    <InputWithLabel 
+                        label='Заголовок'
+                        name='resume_title'
+                        value={resume.resume_title}
+                        handleChange={handleChange}   
+                     />
 
                     <SimpleGrid columns={2} gap={4}>
-                        <InputWithLabel label='Страна' />
-                        <InputWithLabel label='Город' />
+                        <InputWithLabel 
+                            label='Страна' 
+                            name='country'
+                            value={resume.country}
+                            handleChange={handleChange}    
+                        />
+                        <InputWithLabel 
+                            label='Город' 
+                            name='city'
+                            value={resume.city}
+                            handleChange={handleChange}    
+                        />
                     </SimpleGrid>
                     <MultipleInputs
-                        //inputs, label, handleChange, handleAdd
+                        //inputs, label, handleChange, name
                         inputs={resume.emails}
                         label='Email'
+                        name='emails'
+                        handleChange={handleChange}
                     />
                     <MultipleInputs
-                        //inputs, label, handleChange, handleAdd
+                        //inputs, label, handleChange, name
                         inputs={resume.phones}
                         label='Телефон'
+                        name='phones'
+                        handleChange={handleChange}
                     />
                     <Box>
                         <Text>О себе</Text>

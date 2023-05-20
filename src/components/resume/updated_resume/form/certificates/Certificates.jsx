@@ -1,14 +1,20 @@
 import React from 'react';
-import CustomAccordionItem from '../shared/CustomAccordionItem';
-import CustomAccordionPanel from '../shared/CustomAccordionPanel';
+import SimpleInput from '../shared/SimpleInput';
+import PhotoUploader from '../personal/PhotoUploder';
+import { Box } from '@chakra-ui/react';
 
 const Certificates = () => {
     return (
-        <CustomAccordionItem>
-            <CustomAccordionPanel>
-                Certificates
-            </CustomAccordionPanel>
-        </CustomAccordionItem>
+        <SimpleInput
+        //label, value, handleChange, type, name
+            name='Сертификаты'
+            label='Сертификат'
+
+        >
+            <Box mt={4}>
+                <PhotoUploader/>
+            </Box>
+        </SimpleInput>
     )
 }
 

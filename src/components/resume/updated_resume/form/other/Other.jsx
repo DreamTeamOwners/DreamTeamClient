@@ -1,14 +1,14 @@
 import React from 'react';
 import CustomAccordionItem from '../shared/CustomAccordionItem';
 import CustomAccordionPanel from '../shared/CustomAccordionPanel';
+import SimpleInput from '../shared/SimpleInput';
 
 const Other = () => {
     return (
-        <CustomAccordionItem>
-            <CustomAccordionPanel>
-                Other
-            </CustomAccordionPanel>
-        </CustomAccordionItem>
+        <SimpleInput
+            name='Другое'
+            label='Другое'
+        />
     )
 }
 

@@ -1,14 +1,14 @@
 import React from 'react';
-import CustomAccordionItem from '../shared/CustomAccordionItem';
-import CustomAccordionPanel from '../shared/CustomAccordionPanel';
+import SimpleInput from '../shared/SimpleInput';
 
 const Qualities = () => {
     return (
-        <CustomAccordionItem>
-            <CustomAccordionPanel>
-                Qualities
-            </CustomAccordionPanel>
-        </CustomAccordionItem>
+        <SimpleInput
+            //label, value, handleChange, type, name
+            name='Качества'
+            label='Качество'
+            
+        />
     )
 }
 

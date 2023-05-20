@@ -5,7 +5,7 @@ import {BiArrowBack} from 'react-icons/bi'
 import {AiOutlineDownload} from 'react-icons/ai'
 import LanguageMenu from './LanguageMenu';
 
-const CreateResumeHeader = ({first_name, last_name}) => {
+const ResumeEditHeader = ({first_name, last_name}) => {
     return(
         <Box
             bg={'#011528'}
@@ -42,4 +42,4 @@ const CreateResumeHeader = ({first_name, last_name}) => {
     )
 }
 
-export default CreateResumeHeader
+export default ResumeEditHeader
