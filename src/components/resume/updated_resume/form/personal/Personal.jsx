@@ -78,6 +78,7 @@ const Personal = ({resume,handleChange}) => {
                         label='Email'
                         name='emails'
                         handleChange={handleChange}
+                        type='email'
                     />
                     <MultipleInputs
                         //inputs, label, handleChange, name
@@ -85,13 +86,16 @@ const Personal = ({resume,handleChange}) => {
                         label='Телефон'
                         name='phones'
                         handleChange={handleChange}
+                        type='tel'
                     />
                     <Box>
                         <Text>О себе</Text>
                         <Textarea
                             variant={'filled'}
-                            value={resume.description}
+                            value={resume.self_description}
+                            name='self_description'
                             onChange={handleChange}
+                            size={'lg'}
                         />
                     </Box>
                 </SimpleGrid>

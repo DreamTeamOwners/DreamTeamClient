@@ -44,7 +44,7 @@ const resumeTemplates = [
 
 const TemplateMenu = () => {
     return (
-        <Box border={'1px lightgray solid'} borderRadius={7} shadow={'3px'} p={2} mt={4}>
+        <Box border={'1px lightgray solid'} borderRadius={7} shadow={'3px'} p={2} mt={4} >
                 <Menu placement={'top'} isLazy='true' offset={[500,20]}>
                     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                         <FaMagic/>

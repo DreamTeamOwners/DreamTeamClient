@@ -26,17 +26,17 @@ const ResumeForm = ({resume,handleChange,setResume}) => {
                 allowMultiple={'true'}
             >
                 <Personal resume={resume} handleChange={handleChange}/>
-                <Educations/>
-                <Experiences/>
-                <Internships/>
-                <Courses/>
-                <Skills/>
-                <Languages/>                
+                <Educations resume={resume} handleChange={handleChange}/>
+                <Experiences resume={resume} handleChange={handleChange}/>
+                <Internships resume={resume} handleChange={handleChange}/>
+                <Courses resume={resume} handleChange={handleChange}/>
+                <Skills resume={resume} handleChange={handleChange}/>
+                <Languages resume={resume} handleChange={handleChange}/>                
                 <Hobbies resume={resume} setResume={setResume}/>
-                <Recommendations/>
-                <Qualities/>
-                <Certificates/>
-                <Other/>
+                <Recommendations resume={resume} handleChange={handleChange}/>
+                <Qualities resume={resume} handleChange={handleChange}/>
+                <Certificates resume={resume} handleChange={handleChange}/>
+                <Other resume={resume} handleChange={handleChange}/>
             </Accordion>
         </Box>
     )

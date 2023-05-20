@@ -2,7 +2,7 @@ import { Box, IconButton, Input, Text } from '@chakra-ui/react';
 import React from 'react';
 import { AiFillDelete, AiOutlinePlus } from 'react-icons/ai';
 
-const MultipleInputs = ({inputs, label, handleChange, name}) => {
+const MultipleInputs = ({inputs, label, handleChange, name, type}) => {
 
     const handleChangeInner = (index, value) => {
         const newInputs = [...inputs];
@@ -24,12 +24,13 @@ const MultipleInputs = ({inputs, label, handleChange, name}) => {
     const input_list = inputs.map((input, index)=>{
         return(
             <>
-            {index == 0 ? 
+            {index === 0 ? 
                     <Box display={'flex'} mt={2}>
                         <Input
                             key={index}
                             value={input}
                             onChange={(e) => handleChangeInner(index,e.target.value)}
+                            type={type}
                         />
                         <IconButton icon={<AiOutlinePlus />} onClick={handleAdd} ml={4}/>
                     </Box>

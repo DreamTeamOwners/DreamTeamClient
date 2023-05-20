@@ -13,8 +13,7 @@ export const resumeInitial = {
     educations: [
         {
             title:'',
-            institution:'',
-            country:'',
+            organization:'',
             city:'',
             description:'',
             start_date:'',
@@ -23,11 +22,18 @@ export const resumeInitial = {
     ],
     experiences:[
         {
-            position:'',
-            employer:'',
-            country:'',
-            //internship, full, minor, major
-            type:'',
+            title:'',
+            organization:'',
+            city:'',
+            description:'',
+            start_date:'',
+            end_date:''
+        }
+    ],
+    internships:[
+        {
+            title:'',
+            organization:'',
             city:'',
             description:'',
             start_date:'',
@@ -37,8 +43,7 @@ export const resumeInitial = {
     courses:[
         {
             title:'',
-            institution:'',
-            country:'',
+            organization:'',
             city:'',
             description:'',
             start_date:'',

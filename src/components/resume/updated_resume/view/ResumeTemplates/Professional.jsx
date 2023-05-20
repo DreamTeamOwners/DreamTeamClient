@@ -4,10 +4,22 @@ import TextWithIcon from '../../form/shared/TextWithIcon';
 import { AiFillPhone } from 'react-icons/ai';
 import {BsGeoAltFill} from 'react-icons/bs'
 import {IoIosMail} from 'react-icons/io'
+import BlockTemplate from './BlockTemplate';
 
 const Professional = ({resume}) => {
     return (
-        <Box borderRadius={7} border={'1px solid lightgray'}>
+        <Box
+            borderRadius={7} 
+            border={'1px solid lightgray'} 
+            // maxH={'500px'}
+        >
+        <Box 
+            
+            // transformOrigin={'top'}
+            // transform={'scale(0.5,0.5)'}
+            // overflow={'scroll'}
+            // maxH={'1000px'}
+        >
             <Box
                 display={'grid'}
                 gridTemplateColumns={'1fr 5fr'}
@@ -29,23 +41,47 @@ const Professional = ({resume}) => {
             </Box>
             <Box 
                 display={'grid'} 
-                gridTemplateColumns={'4fr 1fr'}
+                gridTemplateColumns={'3fr 1fr'}
                 borderBottomRadius={7}
                 mb={4}     
             >
                 <Box 
-                    bg='red'
                     p={2}
+                    borderRight={'1px solid lightgray'}
                 >
-                    Main
+                    {resume.educations[0].title && 
+                        <BlockTemplate
+                            block_title='Образование'
+                            data={resume.educations}
+                        />
+                    }
+                    {resume.experiences[0].title && 
+                        <BlockTemplate
+                            block_title='Места работы'
+                            data={resume.experiences}
+                        />
+                    }
+                    {resume.courses[0].title && 
+                        <BlockTemplate
+                            block_title='Курсы'
+                            data={resume.courses}
+                        />
+                    }
+                    {resume.internships[0].title && 
+                        <BlockTemplate
+                            block_title='Стажировки'
+                            data={resume.internships}
+                        />
+                    }
                 </Box>
                 <Box 
-                    bg='green'
                     p={2}    
                 >
-                    Side
+                    <Text>О себе</Text>
+                    <Text>{resume.self_description}</Text>
                 </Box>
             </Box>
+        </Box>
         </Box>
             
     )

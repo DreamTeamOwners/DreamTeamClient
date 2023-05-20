@@ -1,5 +1,5 @@
 import { AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button } from '@chakra-ui/react';
-import React, { Children } from 'react';
+import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 const CustomAccordionItem = ({name, handleAdd, children, addButton}) => {

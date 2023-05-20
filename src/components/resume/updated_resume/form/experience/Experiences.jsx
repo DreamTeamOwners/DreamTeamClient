@@ -1,15 +1,15 @@
 import React from 'react';
 import FormTemplate from '../shared/FormTemplate';
 
-const Experiences = () => {
+const Experiences = ({resume, handleChange}) => {
     return (
         <FormTemplate
-            name='Место работы'
-            title_input_label='Должность'
-            add_label='место работы'
-            description_label='Описание'
-            city_input_label='Город'
-            place_input_label='Работодатель'                    
+            target='experiences'
+            accordion_name={'Место работы'}
+            title_input={'Должность'}
+            organization_input={'Работодатель'}
+            forms={resume.experiences}
+            handleChange={handleChange}
         />
     )
 }

@@ -1,5 +1,5 @@
 import { AccordionPanel, Box, Button, IconButton } from '@chakra-ui/react';
-import React, { Children } from 'react';
+import React from 'react';
 import { AiFillDelete, AiOutlineCheck } from 'react-icons/ai';
 
 const CustomAccordionPanel = ({index, handleRemove, children}) => {
